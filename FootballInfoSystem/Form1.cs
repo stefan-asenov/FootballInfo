@@ -14,7 +14,7 @@ namespace FootballInfoSystem {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            MessageBox.Show("git!");
+            MessageBox.Show("git! test commit");
         }
     }
 }
