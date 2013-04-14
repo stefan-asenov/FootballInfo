@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FootballInfoSystem {
-    public partial class Form1 : Form {
-        public Form1() {
+namespace FootballInfoSystem.View
+{
+    public partial class Home : Form
+    {
+        public Home()
+        {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-            MessageBox.Show("git! test commit");
         }
     }
 }
