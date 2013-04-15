@@ -7,13 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FootballInfoSystem.View
-{
-    public partial class Home : Form
-    {
-        public Home()
-        {
+namespace FootballInfoSystem.View {
+    public partial class FootballerView : Form {
+        public FootballerView() {
             InitializeComponent();
         }
+
     }
 }
