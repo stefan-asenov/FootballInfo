@@ -47,7 +47,7 @@
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Първентво:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+           // this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox2
             // 

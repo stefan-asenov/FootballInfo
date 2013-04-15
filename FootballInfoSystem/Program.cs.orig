@@ -13,7 +13,11 @@ namespace FootballInfoSystem {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-	    Application.Run(new HomeView());
+<<<<<<< Updated upstream
+            Application.Run(new HomeView());
+=======
+            Application.Run(new Home());
+>>>>>>> Stashed changes
         }
     }
 }

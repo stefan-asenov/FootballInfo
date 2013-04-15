@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FootballSystemDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FootballSystemDatabaseModelStoreContainer">
+    <EntitySet Name="Users" EntityType="FootballSystemDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teams" EntityType="FootballSystemDatabaseModel.Store.Teams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leagues" EntityType="FootballSystemDatabaseModel.Store.Leagues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Footballers" EntityType="FootballSystemDatabaseModel.Store.Footballers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Games" EntityType="FootballSystemDatabaseModel.Store.Games" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTeam" EntityType="FootballSystemDatabaseModel.Store.UserTeam" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UserTeam_User" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTeam_Team" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="LeagueTeam" Association="FootballSystemDatabaseModel.Store.LeagueTeam">
+      <End Role="League" EntitySet="Leagues" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="TeamFootballer" Association="FootballSystemDatabaseModel.Store.TeamFootballer">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Footballer" EntitySet="Footballers" />
+    </AssociationSet>
+    <AssociationSet Name="GameTeam" Association="FootballSystemDatabaseModel.Store.GameTeam">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="GameTeam1" Association="FootballSystemDatabaseModel.Store.GameTeam1">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="stadiumn" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="manager" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="founded" Type="datetime" Nullable="false" />
+    <Property Name="points" Type="smallint" Nullable="false" />
+    <Property Name="wins" Type="smallint" Nullable="false" />
+    <Property Name="losts" Type="smallint" Nullable="false" />
+    <Property Name="draws" Type="smallint" Nullable="false" />
+    <Property Name="League_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leagues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Footballers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="age" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nationality" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="result" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="matchDate" Type="datetime" Nullable="false" />
+    <Property Name="homeTeam_Id" Type="int" Nullable="false" />
+    <Property Name="awayTeam_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTeam">
+    <Key>
+      <PropertyRef Name="Users_Id" />
+      <PropertyRef Name="Teams_Id" />
+    </Key>
+    <Property Name="Users_Id" Type="int" Nullable="false" />
+    <Property Name="Teams_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LeagueTeam">
+    <End Role="League" Type="FootballSystemDatabaseModel.Store.Leagues" Multiplicity="1" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="League">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="League_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamFootballer">
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <End Role="Footballer" Type="FootballSystemDatabaseModel.Store.Footballers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Footballer">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameTeam">
+    <End Role="Game" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="homeTeam_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameTeam1">
+    <End Role="Game" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="awayTeam_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_User">
+    <End Role="User" Type="FootballSystemDatabaseModel.Store.Users" Multiplicity="1" />
+    <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_Team">
+    <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Teams_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FootballSystemDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FootballSystemDatabaseEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Users" EntityType="FootballSystemDatabaseModel.User" />
+          <EntitySet Name="Teams" EntityType="FootballSystemDatabaseModel.Team" />
+          <EntitySet Name="Leagues" EntityType="FootballSystemDatabaseModel.League" />
+          <EntitySet Name="Footballers" EntityType="FootballSystemDatabaseModel.Footballer" />
+          <EntitySet Name="Games" EntityType="FootballSystemDatabaseModel.Game" />
+          <AssociationSet Name="UserTeam" Association="FootballSystemDatabaseModel.UserTeam">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="LeagueTeam" Association="FootballSystemDatabaseModel.LeagueTeam">
+            <End Role="League" EntitySet="Leagues" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="TeamFootballer" Association="FootballSystemDatabaseModel.TeamFootballer">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Footballer" EntitySet="Footballers" />
+          </AssociationSet>
+          <AssociationSet Name="GameTeam" Association="FootballSystemDatabaseModel.GameTeam">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="GameTeam1" Association="FootballSystemDatabaseModel.GameTeam1">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="userName" Nullable="false" />
+          <Property Type="String" Name="password" Nullable="false" />
+          <Property Type="String" Name="firstName" Nullable="false" />
+          <Property Type="String" Name="lastName" Nullable="false" />
+          <NavigationProperty Name="Teams" Relationship="FootballSystemDatabaseModel.UserTeam" FromRole="User" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="stadiumn" Nullable="false" />
+          <Property Type="String" Name="manager" Nullable="false" />
+          <Property Type="DateTime" Name="founded" Nullable="false" />
+          <Property Type="Int16" Name="points" Nullable="false" />
+          <Property Type="Int16" Name="wins" Nullable="false" />
+          <Property Type="Int16" Name="losts" Nullable="false" />
+          <Property Type="Int16" Name="draws" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="FootballSystemDatabaseModel.UserTeam" FromRole="Team" ToRole="User" />
+          <NavigationProperty Name="League" Relationship="FootballSystemDatabaseModel.LeagueTeam" FromRole="Team" ToRole="League" />
+          <NavigationProperty Name="Footballers" Relationship="FootballSystemDatabaseModel.TeamFootballer" FromRole="Team" ToRole="Footballer" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="country" Nullable="false" />
+          <NavigationProperty Name="Teams" Relationship="FootballSystemDatabaseModel.LeagueTeam" FromRole="League" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Footballer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="age" Nullable="false" />
+          <Property Type="String" Name="nationality" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="FootballSystemDatabaseModel.TeamFootballer" FromRole="Footballer" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="result" Nullable="false" />
+          <Property Type="DateTime" Name="matchDate" Nullable="false" />
+          <NavigationProperty Name="homeTeam" Relationship="FootballSystemDatabaseModel.GameTeam" FromRole="Game" ToRole="Team" />
+          <NavigationProperty Name="awayTeam" Relationship="FootballSystemDatabaseModel.GameTeam1" FromRole="Game" ToRole="Team" />
+        </EntityType>
+        <Association Name="UserTeam">
+          <End Type="FootballSystemDatabaseModel.User" Role="User" Multiplicity="*" />
+          <End Type="FootballSystemDatabaseModel.Team" Role="Team" Multiplicity="*" />
+        </Association>
+        <Association Name="LeagueTeam">
+          <End Type="FootballSystemDatabaseModel.League" Role="League" Multiplicity="1" />
+          <End Type="FootballSystemDatabaseModel.Team" Role="Team" Multiplicity="*" />
+        </Association>
+        <Association Name="TeamFootballer">
+          <End Type="FootballSystemDatabaseModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="FootballSystemDatabaseModel.Footballer" Role="Footballer" Multiplicity="*" />
+        </Association>
+        <Association Name="GameTeam">
+          <End Type="FootballSystemDatabaseModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="FootballSystemDatabaseModel.Team" Role="Team" Multiplicity="1" />
+        </Association>
+        <Association Name="GameTeam1">
+          <End Type="FootballSystemDatabaseModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="FootballSystemDatabaseModel.Team" Role="Team" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FootballSystemDatabaseModelStoreContainer" CdmEntityContainer="FootballSystemDatabaseEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.Team)">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="stadiumn" ColumnName="stadiumn" />
+          <ScalarProperty Name="manager" ColumnName="manager" />
+          <ScalarProperty Name="founded" ColumnName="founded" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="wins" ColumnName="wins" />
+          <ScalarProperty Name="losts" ColumnName="losts" />
+          <ScalarProperty Name="draws" ColumnName="draws" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leagues">
+      <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.League)">
+        <MappingFragment StoreEntitySet="Leagues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Footballers">
+      <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.Footballer)">
+        <MappingFragment StoreEntitySet="Footballers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.Game)">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="matchDate" ColumnName="matchDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserTeam" TypeName="FootballSystemDatabaseModel.UserTeam" StoreEntitySet="UserTeam">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Users_Id" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Teams_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LeagueTeam" TypeName="FootballSystemDatabaseModel.LeagueTeam" StoreEntitySet="Teams">
+      <EndProperty Name="League">
+        <ScalarProperty Name="Id" ColumnName="League_Id" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamFootballer" TypeName="FootballSystemDatabaseModel.TeamFootballer" StoreEntitySet="Footballers">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="Footballer">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameTeam" TypeName="FootballSystemDatabaseModel.GameTeam" StoreEntitySet="Games">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="homeTeam_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameTeam1" TypeName="FootballSystemDatabaseModel.GameTeam1" StoreEntitySet="Games">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="awayTeam_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" >
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.User" Width="1.5" PointX="0.5" PointY="0.5" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.Team" Width="1.5" PointX="2.625" PointY="0.5" Height="3.326396484375" />
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.League" Width="1.5" PointX="5.25" PointY="0.5" Height="1.59568359375" />
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.Footballer" Width="1.5" PointX="5" PointY="3.75" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.Game" Width="1.5" PointX="0.5" PointY="3.5" Height="1.5956835937499996" />
+        <AssociationConnector Association="FootballSystemDatabaseModel.UserTeam">
+          <ConnectorPoint PointX="2" PointY="1.5862939453125" />
+          <ConnectorPoint PointX="2.625" PointY="1.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="FootballSystemDatabaseModel.LeagueTeam">
+          <ConnectorPoint PointX="5.25" PointY="1.3939925130208337" />
+          <ConnectorPoint PointX="4.125" PointY="1.3939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FootballSystemDatabaseModel.TeamFootballer">
+          <ConnectorPoint PointX="4.125" PointY="3.0502420130208332" />
+          <ConnectorPoint PointX="5.09375" PointY="3.0502420130208332" />
+          <ConnectorPoint PointX="5.09375" PointY="3.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="FootballSystemDatabaseModel.GameTeam">
+          <ConnectorPoint PointX="2" PointY="3.7953221638997396" />
+          <ConnectorPoint PointX="2.625" PointY="3.7953221638997396" />
+        </AssociationConnector>
+        <AssociationConnector Association="FootballSystemDatabaseModel.GameTeam1">
+          <ConnectorPoint PointX="2" PointY="3.58516108194987" />
+          <ConnectorPoint PointX="2.625" PointY="3.58516108194987" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
