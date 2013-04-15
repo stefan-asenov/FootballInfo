@@ -23,21 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.championshipCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.teamCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // championshipCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 21);
-            this.comboBox1.TabIndex = 0;
+            this.championshipCombo.FormattingEnabled = true;
+            this.championshipCombo.Location = new System.Drawing.Point(91, 12);
+            this.championshipCombo.Name = "championshipCombo";
+            this.championshipCombo.Size = new System.Drawing.Size(157, 21);
+            this.championshipCombo.TabIndex = 0;
             // 
             // label1
             // 
@@ -47,15 +47,14 @@
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Първентво:";
-           // this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox2
+            // teamCombo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 39);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(157, 21);
-            this.comboBox2.TabIndex = 2;
+            this.teamCombo.FormattingEnabled = true;
+            this.teamCombo.Location = new System.Drawing.Point(91, 39);
+            this.teamCombo.Name = "teamCombo";
+            this.teamCombo.Size = new System.Drawing.Size(157, 21);
+            this.teamCombo.TabIndex = 2;
             // 
             // label2
             // 
@@ -78,6 +77,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(173, 74);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -96,9 +96,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.teamCombo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.championshipCombo);
             this.Name = "SelectFavouriteTeamView";
             this.Text = "Любим отбор";
             this.ResumeLayout(false);
@@ -108,9 +108,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox championshipCombo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox teamCombo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;

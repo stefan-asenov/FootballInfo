@@ -24,7 +24,7 @@ namespace FootballInfoSystem.View
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            Program.ExitApplication(1);
         }
 
         public static List<string> GetFavoriteTeams(int userId)

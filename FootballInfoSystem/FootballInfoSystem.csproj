@@ -52,7 +52,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -65,11 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FootballSystemModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FootballSystemModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\FootballerView.cs">
@@ -109,10 +103,6 @@
     <EmbeddedResource Include="View\SelectFavouriteTeamView.resx">
       <DependentUpon>SelectFavouriteTeamView.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="FootballSystemModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FootballSystemModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,7 +122,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FootballSystemDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="FootballSystemModel.edmx.sql" />
     <Content Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +157,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Folder Include="Logic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
