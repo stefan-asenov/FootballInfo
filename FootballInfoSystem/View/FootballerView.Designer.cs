@@ -27,7 +27,12 @@
             this.footballerTabControl = new System.Windows.Forms.TabControl();
             this.personalInfoTab = new System.Windows.Forms.TabPage();
             this.infoPanel = new System.Windows.Forms.Panel();
-            this.lblPreviousTeams = new System.Windows.Forms.Label();
+            this.lblDataNumber = new System.Windows.Forms.Label();
+            this.lblDataPosition = new System.Windows.Forms.Label();
+            this.lblDataWeight = new System.Windows.Forms.Label();
+            this.lblDataHeight = new System.Windows.Forms.Label();
+            this.lblDataBorn = new System.Windows.Forms.Label();
+            this.linkLblCountry = new System.Windows.Forms.LinkLabel();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
@@ -36,13 +41,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblBorn = new System.Windows.Forms.Label();
             this.historyTab = new System.Windows.Forms.TabPage();
-            this.linkLblCountry = new System.Windows.Forms.LinkLabel();
-            this.lblDataBorn = new System.Windows.Forms.Label();
-            this.lblDataHeight = new System.Windows.Forms.Label();
-            this.lblDataWeight = new System.Windows.Forms.Label();
-            this.lblDataNumber = new System.Windows.Forms.Label();
-            this.lblDataPreviousTeams = new System.Windows.Forms.Label();
-            this.lblDataPosition = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.photoBox)).BeginInit();
             this.footballerTabControl.SuspendLayout();
             this.personalInfoTab.SuspendLayout();
@@ -64,7 +62,7 @@
             this.footballerTabControl.Location = new System.Drawing.Point(13, 12);
             this.footballerTabControl.Name = "footballerTabControl";
             this.footballerTabControl.SelectedIndex = 0;
-            this.footballerTabControl.Size = new System.Drawing.Size(409, 290);
+            this.footballerTabControl.Size = new System.Drawing.Size(394, 250);
             this.footballerTabControl.TabIndex = 2;
             // 
             // personalInfoTab
@@ -74,21 +72,19 @@
             this.personalInfoTab.Location = new System.Drawing.Point(4, 22);
             this.personalInfoTab.Name = "personalInfoTab";
             this.personalInfoTab.Padding = new System.Windows.Forms.Padding(3);
-            this.personalInfoTab.Size = new System.Drawing.Size(401, 264);
+            this.personalInfoTab.Size = new System.Drawing.Size(386, 224);
             this.personalInfoTab.TabIndex = 0;
             this.personalInfoTab.Text = "Лична информация";
             this.personalInfoTab.UseVisualStyleBackColor = true;
             // 
             // infoPanel
             // 
-            this.infoPanel.Controls.Add(this.lblDataPreviousTeams);
             this.infoPanel.Controls.Add(this.lblDataNumber);
             this.infoPanel.Controls.Add(this.lblDataPosition);
             this.infoPanel.Controls.Add(this.lblDataWeight);
             this.infoPanel.Controls.Add(this.lblDataHeight);
             this.infoPanel.Controls.Add(this.lblDataBorn);
             this.infoPanel.Controls.Add(this.linkLblCountry);
-            this.infoPanel.Controls.Add(this.lblPreviousTeams);
             this.infoPanel.Controls.Add(this.lblNumber);
             this.infoPanel.Controls.Add(this.lblPosition);
             this.infoPanel.Controls.Add(this.lblWeight);
@@ -101,14 +97,61 @@
             this.infoPanel.Size = new System.Drawing.Size(259, 251);
             this.infoPanel.TabIndex = 3;
             // 
-            // lblPreviousTeams
+            // lblDataNumber
             // 
-            this.lblPreviousTeams.AutoSize = true;
-            this.lblPreviousTeams.Location = new System.Drawing.Point(15, 197);
-            this.lblPreviousTeams.Name = "lblPreviousTeams";
-            this.lblPreviousTeams.Size = new System.Drawing.Size(100, 13);
-            this.lblPreviousTeams.TabIndex = 6;
-            this.lblPreviousTeams.Text = "Предишни отбори:";
+            this.lblDataNumber.AutoSize = true;
+            this.lblDataNumber.Location = new System.Drawing.Point(132, 169);
+            this.lblDataNumber.Name = "lblDataNumber";
+            this.lblDataNumber.Size = new System.Drawing.Size(35, 13);
+            this.lblDataNumber.TabIndex = 8;
+            this.lblDataNumber.Text = "label1";
+            // 
+            // lblDataPosition
+            // 
+            this.lblDataPosition.AutoSize = true;
+            this.lblDataPosition.Location = new System.Drawing.Point(132, 143);
+            this.lblDataPosition.Name = "lblDataPosition";
+            this.lblDataPosition.Size = new System.Drawing.Size(35, 13);
+            this.lblDataPosition.TabIndex = 8;
+            this.lblDataPosition.Text = "label1";
+            // 
+            // lblDataWeight
+            // 
+            this.lblDataWeight.AutoSize = true;
+            this.lblDataWeight.Location = new System.Drawing.Point(132, 118);
+            this.lblDataWeight.Name = "lblDataWeight";
+            this.lblDataWeight.Size = new System.Drawing.Size(35, 13);
+            this.lblDataWeight.TabIndex = 8;
+            this.lblDataWeight.Text = "label1";
+            // 
+            // lblDataHeight
+            // 
+            this.lblDataHeight.AutoSize = true;
+            this.lblDataHeight.Location = new System.Drawing.Point(132, 92);
+            this.lblDataHeight.Name = "lblDataHeight";
+            this.lblDataHeight.Size = new System.Drawing.Size(35, 13);
+            this.lblDataHeight.TabIndex = 8;
+            this.lblDataHeight.Text = "label1";
+            // 
+            // lblDataBorn
+            // 
+            this.lblDataBorn.AutoSize = true;
+            this.lblDataBorn.Location = new System.Drawing.Point(132, 37);
+            this.lblDataBorn.Name = "lblDataBorn";
+            this.lblDataBorn.Size = new System.Drawing.Size(35, 13);
+            this.lblDataBorn.TabIndex = 8;
+            this.lblDataBorn.Text = "label1";
+            // 
+            // linkLblCountry
+            // 
+            this.linkLblCountry.AutoSize = true;
+            this.linkLblCountry.Location = new System.Drawing.Point(132, 63);
+            this.linkLblCountry.Name = "linkLblCountry";
+            this.linkLblCountry.Size = new System.Drawing.Size(55, 13);
+            this.linkLblCountry.TabIndex = 7;
+            this.linkLblCountry.TabStop = true;
+            this.linkLblCountry.Text = "linkLabel1";
+            this.linkLblCountry.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // lblNumber
             // 
@@ -183,71 +226,6 @@
             this.historyTab.Text = "История";
             this.historyTab.UseVisualStyleBackColor = true;
             // 
-            // linkLblCountry
-            // 
-            this.linkLblCountry.AutoSize = true;
-            this.linkLblCountry.Location = new System.Drawing.Point(132, 63);
-            this.linkLblCountry.Name = "linkLblCountry";
-            this.linkLblCountry.Size = new System.Drawing.Size(55, 13);
-            this.linkLblCountry.TabIndex = 7;
-            this.linkLblCountry.TabStop = true;
-            this.linkLblCountry.Text = "linkLabel1";
-            this.linkLblCountry.VisitedLinkColor = System.Drawing.Color.Blue;
-            // 
-            // lblDataBorn
-            // 
-            this.lblDataBorn.AutoSize = true;
-            this.lblDataBorn.Location = new System.Drawing.Point(132, 37);
-            this.lblDataBorn.Name = "lblDataBorn";
-            this.lblDataBorn.Size = new System.Drawing.Size(35, 13);
-            this.lblDataBorn.TabIndex = 8;
-            this.lblDataBorn.Text = "label1";
-            // 
-            // lblDataHeight
-            // 
-            this.lblDataHeight.AutoSize = true;
-            this.lblDataHeight.Location = new System.Drawing.Point(132, 92);
-            this.lblDataHeight.Name = "lblDataHeight";
-            this.lblDataHeight.Size = new System.Drawing.Size(35, 13);
-            this.lblDataHeight.TabIndex = 8;
-            this.lblDataHeight.Text = "label1";
-            // 
-            // lblDataWeight
-            // 
-            this.lblDataWeight.AutoSize = true;
-            this.lblDataWeight.Location = new System.Drawing.Point(132, 118);
-            this.lblDataWeight.Name = "lblDataWeight";
-            this.lblDataWeight.Size = new System.Drawing.Size(35, 13);
-            this.lblDataWeight.TabIndex = 8;
-            this.lblDataWeight.Text = "label1";
-            // 
-            // lblDataNumber
-            // 
-            this.lblDataNumber.AutoSize = true;
-            this.lblDataNumber.Location = new System.Drawing.Point(132, 169);
-            this.lblDataNumber.Name = "lblDataNumber";
-            this.lblDataNumber.Size = new System.Drawing.Size(35, 13);
-            this.lblDataNumber.TabIndex = 8;
-            this.lblDataNumber.Text = "label1";
-            // 
-            // lblDataPreviousTeams
-            // 
-            this.lblDataPreviousTeams.AutoSize = true;
-            this.lblDataPreviousTeams.Location = new System.Drawing.Point(132, 197);
-            this.lblDataPreviousTeams.Name = "lblDataPreviousTeams";
-            this.lblDataPreviousTeams.Size = new System.Drawing.Size(35, 13);
-            this.lblDataPreviousTeams.TabIndex = 8;
-            this.lblDataPreviousTeams.Text = "label1";
-            // 
-            // lblDataPosition
-            // 
-            this.lblDataPosition.AutoSize = true;
-            this.lblDataPosition.Location = new System.Drawing.Point(132, 143);
-            this.lblDataPosition.Name = "lblDataPosition";
-            this.lblDataPosition.Size = new System.Drawing.Size(35, 13);
-            this.lblDataPosition.TabIndex = 8;
-            this.lblDataPosition.Text = "label1";
-            // 
             // FootballerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,9 +256,7 @@
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblWeight;
         private System.Windows.Forms.Label lblHeight;
-        private System.Windows.Forms.Label lblPreviousTeams;
         private System.Windows.Forms.Label lblNumber;
-        private System.Windows.Forms.Label lblDataPreviousTeams;
         private System.Windows.Forms.Label lblDataNumber;
         private System.Windows.Forms.Label lblDataPosition;
         private System.Windows.Forms.Label lblDataWeight;

@@ -53,7 +53,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="stadiumn" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="stadium" Type="nvarchar(max)" Nullable="false" />
     <Property Name="manager" Type="nvarchar(max)" Nullable="false" />
     <Property Name="founded" Type="datetime" Nullable="false" />
     <Property Name="points" Type="smallint" Nullable="false" />
@@ -78,6 +78,11 @@
     <Property Name="name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="age" Type="nvarchar(max)" Nullable="false" />
     <Property Name="nationality" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datеOfBirth" Type="datetime" Nullable="false" />
+    <Property Name="height" Type="smallint" Nullable="false" />
+    <Property Name="weight" Type="smallint" Nullable="false" />
+    <Property Name="number" Type="smallint" Nullable="false" />
+    <Property Name="position" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Team_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Games">
@@ -218,7 +223,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" />
-          <Property Type="String" Name="stadiumn" Nullable="false" />
+          <Property Type="String" Name="stadium" Nullable="false" />
           <Property Type="String" Name="manager" Nullable="false" />
           <Property Type="DateTime" Name="founded" Nullable="false" />
           <Property Type="Int16" Name="points" Nullable="false" />
@@ -247,6 +252,11 @@
           <Property Type="String" Name="age" Nullable="false" />
           <Property Type="String" Name="nationality" Nullable="false" />
           <NavigationProperty Name="Team" Relationship="FootballSystemDatabaseModel.TeamFootballer" FromRole="Footballer" ToRole="Team" />
+          <Property Type="DateTime" Name="datеOfBirth" Nullable="false" />
+          <Property Type="Int16" Name="height" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Int16" Name="weight" Nullable="false" />
+          <Property Type="Int16" Name="number" Nullable="false" />
+          <Property Type="String" Name="position" Nullable="false" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -300,7 +310,7 @@
         <MappingFragment StoreEntitySet="Teams">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="stadiumn" ColumnName="stadiumn" />
+          <ScalarProperty Name="stadium" ColumnName="stadium" />
           <ScalarProperty Name="manager" ColumnName="manager" />
           <ScalarProperty Name="founded" ColumnName="founded" />
           <ScalarProperty Name="points" ColumnName="points" />
@@ -326,6 +336,11 @@
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="datеOfBirth" ColumnName="datеOfBirth" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="position" ColumnName="position" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -401,7 +416,7 @@
         <EntityTypeShape EntityType="FootballSystemDatabaseModel.User" Width="1.5" PointX="0.5" PointY="0.5" Height="1.9802864583333331" />
         <EntityTypeShape EntityType="FootballSystemDatabaseModel.Team" Width="1.5" PointX="2.625" PointY="0.5" Height="3.326396484375" />
         <EntityTypeShape EntityType="FootballSystemDatabaseModel.League" Width="1.5" PointX="5.25" PointY="0.5" Height="1.59568359375" />
-        <EntityTypeShape EntityType="FootballSystemDatabaseModel.Footballer" Width="1.5" PointX="5" PointY="3.75" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="FootballSystemDatabaseModel.Footballer" Width="1.5" PointX="5" PointY="3.75" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="FootballSystemDatabaseModel.Game" Width="1.5" PointX="0.5" PointY="3.5" Height="1.5956835937499996" />
         <AssociationConnector Association="FootballSystemDatabaseModel.UserTeam">
           <ConnectorPoint PointX="2" PointY="1.5862939453125" />

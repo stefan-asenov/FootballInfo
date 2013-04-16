@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/16/2013 01:09:56
+-- Date Created: 04/16/2013 23:00:44
 -- Generated from EDMX file: C:\Users\Kiril\Documents\git\FootballInfo\FootballInfoSystem\FootballSystemModel.edmx
 -- --------------------------------------------------
 
@@ -29,11 +29,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TeamFootballer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Footballers] DROP CONSTRAINT [FK_TeamFootballer];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TeamGame]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Teams] DROP CONSTRAINT [FK_TeamGame];
+IF OBJECT_ID(N'[dbo].[FK_GameTeam]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TeamGame1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Teams] DROP CONSTRAINT [FK_TeamGame1];
+IF OBJECT_ID(N'[dbo].[FK_GameTeam1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam1];
 GO
 
 -- --------------------------------------------------
@@ -77,7 +77,7 @@ GO
 CREATE TABLE [dbo].[Teams] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [name] nvarchar(max)  NOT NULL,
-    [stadiumn] nvarchar(max)  NOT NULL,
+    [stadium] nvarchar(max)  NOT NULL,
     [manager] nvarchar(max)  NOT NULL,
     [founded] datetime  NOT NULL,
     [points] smallint  NOT NULL,
@@ -102,6 +102,11 @@ CREATE TABLE [dbo].[Footballers] (
     [name] nvarchar(max)  NOT NULL,
     [age] nvarchar(max)  NOT NULL,
     [nationality] nvarchar(max)  NOT NULL,
+    [datеOfBirth] datetime  NOT NULL,
+    [height] smallint  NOT NULL,
+    [weight] smallint  NOT NULL,
+    [number] smallint  NOT NULL,
+    [position] nvarchar(max)  NOT NULL,
     [Team_Id] int  NOT NULL
 );
 GO

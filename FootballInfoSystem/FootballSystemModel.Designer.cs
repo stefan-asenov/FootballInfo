@@ -224,13 +224,23 @@ namespace FootballInfoSystem
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="age">Initial value of the age property.</param>
         /// <param name="nationality">Initial value of the nationality property.</param>
-        public static Footballer CreateFootballer(global::System.Int32 id, global::System.String name, global::System.String age, global::System.String nationality)
+        /// <param name="datеOfBirth">Initial value of the datеOfBirth property.</param>
+        /// <param name="height">Initial value of the height property.</param>
+        /// <param name="weight">Initial value of the weight property.</param>
+        /// <param name="number">Initial value of the number property.</param>
+        /// <param name="position">Initial value of the position property.</param>
+        public static Footballer CreateFootballer(global::System.Int32 id, global::System.String name, global::System.String age, global::System.String nationality, global::System.DateTime datеOfBirth, global::System.Int16 height, global::System.Int16 weight, global::System.Int16 number, global::System.String position)
         {
             Footballer footballer = new Footballer();
             footballer.Id = id;
             footballer.name = name;
             footballer.age = age;
             footballer.nationality = nationality;
+            footballer.datеOfBirth = datеOfBirth;
+            footballer.height = height;
+            footballer.weight = weight;
+            footballer.number = number;
+            footballer.position = position;
             return footballer;
         }
 
@@ -336,6 +346,126 @@ namespace FootballInfoSystem
         private global::System.String _nationality;
         partial void OnnationalityChanging(global::System.String value);
         partial void OnnationalityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime datеOfBirth
+        {
+            get
+            {
+                return _datеOfBirth;
+            }
+            set
+            {
+                OndatеOfBirthChanging(value);
+                ReportPropertyChanging("datеOfBirth");
+                _datеOfBirth = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("datеOfBirth");
+                OndatеOfBirthChanged();
+            }
+        }
+        private global::System.DateTime _datеOfBirth;
+        partial void OndatеOfBirthChanging(global::System.DateTime value);
+        partial void OndatеOfBirthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 height
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                OnheightChanging(value);
+                ReportPropertyChanging("height");
+                _height = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("height");
+                OnheightChanged();
+            }
+        }
+        private global::System.Int16 _height;
+        partial void OnheightChanging(global::System.Int16 value);
+        partial void OnheightChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 weight
+        {
+            get
+            {
+                return _weight;
+            }
+            set
+            {
+                OnweightChanging(value);
+                ReportPropertyChanging("weight");
+                _weight = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("weight");
+                OnweightChanged();
+            }
+        }
+        private global::System.Int16 _weight;
+        partial void OnweightChanging(global::System.Int16 value);
+        partial void OnweightChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 number
+        {
+            get
+            {
+                return _number;
+            }
+            set
+            {
+                OnnumberChanging(value);
+                ReportPropertyChanging("number");
+                _number = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("number");
+                OnnumberChanged();
+            }
+        }
+        private global::System.Int16 _number;
+        partial void OnnumberChanging(global::System.Int16 value);
+        partial void OnnumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String position
+        {
+            get
+            {
+                return _position;
+            }
+            set
+            {
+                OnpositionChanging(value);
+                ReportPropertyChanging("position");
+                _position = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("position");
+                OnpositionChanged();
+            }
+        }
+        private global::System.String _position;
+        partial void OnpositionChanging(global::System.String value);
+        partial void OnpositionChanged();
 
         #endregion
 
@@ -723,19 +853,19 @@ namespace FootballInfoSystem
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the name property.</param>
-        /// <param name="stadiumn">Initial value of the stadiumn property.</param>
+        /// <param name="stadium">Initial value of the stadium property.</param>
         /// <param name="manager">Initial value of the manager property.</param>
         /// <param name="founded">Initial value of the founded property.</param>
         /// <param name="points">Initial value of the points property.</param>
         /// <param name="wins">Initial value of the wins property.</param>
         /// <param name="losts">Initial value of the losts property.</param>
         /// <param name="draws">Initial value of the draws property.</param>
-        public static Team CreateTeam(global::System.Int32 id, global::System.String name, global::System.String stadiumn, global::System.String manager, global::System.DateTime founded, global::System.Int16 points, global::System.Int16 wins, global::System.Int16 losts, global::System.Int16 draws)
+        public static Team CreateTeam(global::System.Int32 id, global::System.String name, global::System.String stadium, global::System.String manager, global::System.DateTime founded, global::System.Int16 points, global::System.Int16 wins, global::System.Int16 losts, global::System.Int16 draws)
         {
             Team team = new Team();
             team.Id = id;
             team.name = name;
-            team.stadiumn = stadiumn;
+            team.stadium = stadium;
             team.manager = manager;
             team.founded = founded;
             team.points = points;
@@ -805,24 +935,24 @@ namespace FootballInfoSystem
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String stadiumn
+        public global::System.String stadium
         {
             get
             {
-                return _stadiumn;
+                return _stadium;
             }
             set
             {
-                OnstadiumnChanging(value);
-                ReportPropertyChanging("stadiumn");
-                _stadiumn = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("stadiumn");
-                OnstadiumnChanged();
+                OnstadiumChanging(value);
+                ReportPropertyChanging("stadium");
+                _stadium = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("stadium");
+                OnstadiumChanged();
             }
         }
-        private global::System.String _stadiumn;
-        partial void OnstadiumnChanging(global::System.String value);
-        partial void OnstadiumnChanged();
+        private global::System.String _stadium;
+        partial void OnstadiumChanging(global::System.String value);
+        partial void OnstadiumChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

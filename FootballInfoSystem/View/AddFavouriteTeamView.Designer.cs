@@ -1,5 +1,5 @@
 ﻿namespace FootballInfoSystem.View {
-    partial class SelectFavouriteTeamView {
+    partial class AddFavouriteTeamView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,21 +23,22 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.championshipCombo = new System.Windows.Forms.ComboBox();
+            this.leaguesCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.teamCombo = new System.Windows.Forms.ComboBox();
+            this.teamsCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // championshipCombo
+            // leaguesCombo
             // 
-            this.championshipCombo.FormattingEnabled = true;
-            this.championshipCombo.Location = new System.Drawing.Point(91, 12);
-            this.championshipCombo.Name = "championshipCombo";
-            this.championshipCombo.Size = new System.Drawing.Size(157, 21);
-            this.championshipCombo.TabIndex = 0;
+            this.leaguesCombo.FormattingEnabled = true;
+            this.leaguesCombo.Location = new System.Drawing.Point(91, 12);
+            this.leaguesCombo.Name = "leaguesCombo";
+            this.leaguesCombo.Size = new System.Drawing.Size(157, 21);
+            this.leaguesCombo.TabIndex = 0;
+            this.leaguesCombo.SelectedIndexChanged += new System.EventHandler(this.leaguesComboChanged);
             // 
             // label1
             // 
@@ -48,13 +49,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Първентво:";
             // 
-            // teamCombo
+            // teamsCombo
             // 
-            this.teamCombo.FormattingEnabled = true;
-            this.teamCombo.Location = new System.Drawing.Point(91, 39);
-            this.teamCombo.Name = "teamCombo";
-            this.teamCombo.Size = new System.Drawing.Size(157, 21);
-            this.teamCombo.TabIndex = 2;
+            this.teamsCombo.FormattingEnabled = true;
+            this.teamsCombo.Location = new System.Drawing.Point(91, 39);
+            this.teamsCombo.Name = "teamsCombo";
+            this.teamsCombo.Size = new System.Drawing.Size(157, 21);
+            this.teamsCombo.TabIndex = 2;
             // 
             // label2
             // 
@@ -86,7 +87,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // SelectFavouriteTeamView
+            // AddFavouriteTeamView
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,10 +97,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.teamCombo);
+            this.Controls.Add(this.teamsCombo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.championshipCombo);
-            this.Name = "SelectFavouriteTeamView";
+            this.Controls.Add(this.leaguesCombo);
+            this.Name = "AddFavouriteTeamView";
             this.Text = "Любим отбор";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,9 +109,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox championshipCombo;
+        private System.Windows.Forms.ComboBox leaguesCombo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox teamCombo;
+        private System.Windows.Forms.ComboBox teamsCombo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;

@@ -65,7 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="FootballSystemModel.Designer.cs">
+    <Compile Include="Data\DBUtils.cs" />
+    <Compile Include="FootballSystemModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FootballSystemModel.edmx</DependentUpon>
@@ -84,11 +85,11 @@
     <Compile Include="View\HomeView.Designer.cs">
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SelectFavouriteTeamView.cs">
+    <Compile Include="View\AddFavouriteTeamView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SelectFavouriteTeamView.Designer.cs">
-      <DependentUpon>SelectFavouriteTeamView.cs</DependentUpon>
+    <Compile Include="View\AddFavouriteTeamView.Designer.cs">
+      <DependentUpon>AddFavouriteTeamView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,10 +107,10 @@
     <EmbeddedResource Include="View\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SelectFavouriteTeamView.resx">
-      <DependentUpon>SelectFavouriteTeamView.cs</DependentUpon>
+    <EmbeddedResource Include="View\AddFavouriteTeamView.resx">
+      <DependentUpon>AddFavouriteTeamView.cs</DependentUpon>
     </EmbeddedResource>
-	<EntityDeploy Include="FootballSystemModel.edmx">
+    <EntityDeploy Include="FootballSystemModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FootballSystemModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
@@ -132,7 +133,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FootballSystemDatabase.mdf</DependentUpon>
     </Content>
-	<Content Include="FootballSystemModel.edmx.sql" />
+    <Content Include="FootballSystemModel.edmx.sql" />
     <Content Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +169,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-	<Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Logic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
