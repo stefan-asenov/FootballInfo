@@ -23,48 +23,48 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.leaguesCombo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.teamsCombo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.comboLeagues = new System.Windows.Forms.ComboBox();
+            this.lblChampionship = new System.Windows.Forms.Label();
+            this.comboTeams = new System.Windows.Forms.ComboBox();
+            this.lblTeam = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // leaguesCombo
+            // comboLeagues
             // 
-            this.leaguesCombo.FormattingEnabled = true;
-            this.leaguesCombo.Location = new System.Drawing.Point(91, 12);
-            this.leaguesCombo.Name = "leaguesCombo";
-            this.leaguesCombo.Size = new System.Drawing.Size(157, 21);
-            this.leaguesCombo.TabIndex = 0;
-            this.leaguesCombo.SelectedIndexChanged += new System.EventHandler(this.leaguesComboChanged);
+            this.comboLeagues.FormattingEnabled = true;
+            this.comboLeagues.Location = new System.Drawing.Point(91, 12);
+            this.comboLeagues.Name = "comboLeagues";
+            this.comboLeagues.Size = new System.Drawing.Size(157, 21);
+            this.comboLeagues.TabIndex = 0;
+            this.comboLeagues.SelectedIndexChanged += new System.EventHandler(this.leaguesComboChanged);
             // 
-            // label1
+            // lblChampionship
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Първентво:";
+            this.lblChampionship.AutoSize = true;
+            this.lblChampionship.Location = new System.Drawing.Point(13, 12);
+            this.lblChampionship.Name = "lblChampionship";
+            this.lblChampionship.Size = new System.Drawing.Size(66, 13);
+            this.lblChampionship.TabIndex = 1;
+            this.lblChampionship.Text = "Първентво:";
             // 
-            // teamsCombo
+            // comboTeams
             // 
-            this.teamsCombo.FormattingEnabled = true;
-            this.teamsCombo.Location = new System.Drawing.Point(91, 39);
-            this.teamsCombo.Name = "teamsCombo";
-            this.teamsCombo.Size = new System.Drawing.Size(157, 21);
-            this.teamsCombo.TabIndex = 2;
+            this.comboTeams.FormattingEnabled = true;
+            this.comboTeams.Location = new System.Drawing.Point(91, 39);
+            this.comboTeams.Name = "comboTeams";
+            this.comboTeams.Size = new System.Drawing.Size(157, 21);
+            this.comboTeams.TabIndex = 2;
             // 
-            // label2
+            // lblTeam
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Отбор:";
+            this.lblTeam.AutoSize = true;
+            this.lblTeam.Location = new System.Drawing.Point(13, 39);
+            this.lblTeam.Name = "lblTeam";
+            this.lblTeam.Size = new System.Drawing.Size(41, 13);
+            this.lblTeam.TabIndex = 3;
+            this.lblTeam.Text = "Отбор:";
             // 
             // btnAdd
             // 
@@ -96,10 +96,10 @@
             this.ClientSize = new System.Drawing.Size(260, 109);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.teamsCombo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.leaguesCombo);
+            this.Controls.Add(this.lblTeam);
+            this.Controls.Add(this.comboTeams);
+            this.Controls.Add(this.lblChampionship);
+            this.Controls.Add(this.comboLeagues);
             this.Name = "AddFavouriteTeamView";
             this.Text = "Любим отбор";
             this.ResumeLayout(false);
@@ -109,10 +109,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox leaguesCombo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox teamsCombo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboLeagues;
+        private System.Windows.Forms.Label lblChampionship;
+        private System.Windows.Forms.ComboBox comboTeams;
+        private System.Windows.Forms.Label lblTeam;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
     }

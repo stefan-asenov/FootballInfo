@@ -33,17 +33,17 @@
             this.programTab = new System.Windows.Forms.TabPage();
             this.forecastTab = new System.Windows.Forms.TabPage();
             this.footballersTab = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblFavouriteTeam = new System.Windows.Forms.Label();
             this.favoriteTeamCombo = new System.Windows.Forms.ComboBox();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
             this.mainTab.SuspendLayout();
             this.footballersTab.SuspendLayout();
-            this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,14 +100,22 @@
             this.footballersTab.Text = "Футболисти";
             this.footballersTab.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // dataGridView1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Любим отбор:";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(684, 289);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // lblFavouriteTeam
+            // 
+            this.lblFavouriteTeam.AutoSize = true;
+            this.lblFavouriteTeam.Location = new System.Drawing.Point(17, 37);
+            this.lblFavouriteTeam.Name = "lblFavouriteTeam";
+            this.lblFavouriteTeam.Size = new System.Drawing.Size(78, 13);
+            this.lblFavouriteTeam.TabIndex = 1;
+            this.lblFavouriteTeam.Text = "Любим отбор:";
             // 
             // favoriteTeamCombo
             // 
@@ -141,14 +149,6 @@
             this.exitToolStripMenuItem.Text = "Изход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(684, 289);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // addFavoriteTeamImage
             // 
             this.addFavoriteTeamImage.Image = global::FootballInfoSystem.Properties.Resources.add;
@@ -168,16 +168,16 @@
             this.ClientSize = new System.Drawing.Size(733, 406);
             this.Controls.Add(this.addFavoriteTeamImage);
             this.Controls.Add(this.favoriteTeamCombo);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFavouriteTeam);
             this.Controls.Add(this.mainTab);
             this.Controls.Add(this.mainMenu);
             this.Name = "HomeView";
             this.Text = "Футболна информационна система";
             this.mainTab.ResumeLayout(false);
             this.footballersTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,7 +189,7 @@
         private System.Windows.Forms.TabControl mainTab;
         private System.Windows.Forms.TabPage standingTab;
         private System.Windows.Forms.TabPage programTab;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFavouriteTeam;
         private System.Windows.Forms.ComboBox favoriteTeamCombo;
         private System.Windows.Forms.PictureBox addFavoriteTeamImage;
         private System.Windows.Forms.MenuStrip mainMenu;

@@ -12,9 +12,9 @@ namespace FootballInfoSystem.View {
     public partial class AddFavouriteTeamView : Form {
         public AddFavouriteTeamView() {
             InitializeComponent();
-            leaguesCombo.ValueMember = "id";
-            leaguesCombo.DisplayMember = "name";
-            leaguesCombo.DataSource = DBUtils.GetLeagues();  
+            comboLeagues.ValueMember = "id";
+            comboLeagues.DisplayMember = "name";
+            comboLeagues.DataSource = DBUtils.GetLeagues();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -26,7 +26,7 @@ namespace FootballInfoSystem.View {
             int userID = 1;
             try 
             {
-                bool isAdded = DBUtils.АddFavoriteTeam(userID, (int)teamsCombo.SelectedValue);
+                bool isAdded = DBUtils.АddFavoriteTeam(userID, (int)comboTeams.SelectedValue);
                 if (isAdded)
                 {
                     MessageBox.Show("Успешо добавихте любим отбор.");
@@ -44,9 +44,9 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                teamsCombo.ValueMember = "id";
-                teamsCombo.DisplayMember = "name";
-                teamsCombo.DataSource = DBUtils.GetTeamsInLeague((int)leaguesCombo.SelectedValue);
+                comboTeams.ValueMember = "id";
+                comboTeams.DisplayMember = "name";
+                comboTeams.DataSource = DBUtils.GetTeamsInLeague((int)comboLeagues.SelectedValue);
             }
             catch (Exception)
             {

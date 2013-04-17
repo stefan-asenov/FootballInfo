@@ -23,26 +23,26 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.addGameButton = new System.Windows.Forms.Button();
-            this.championshipCombo = new System.Windows.Forms.ComboBox();
-            this.homeTeamCombo = new System.Windows.Forms.ComboBox();
-            this.awayTeamCombo = new System.Windows.Forms.ComboBox();
-            this.championshipLabel = new System.Windows.Forms.Label();
-            this.awayTeamLabel = new System.Windows.Forms.Label();
-            this.homeTeamLabel = new System.Windows.Forms.Label();
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddGame = new System.Windows.Forms.Button();
+            this.comboChampionship = new System.Windows.Forms.ComboBox();
+            this.comboHomeTeam = new System.Windows.Forms.ComboBox();
+            this.comboAwayTeam = new System.Windows.Forms.ComboBox();
+            this.lblChampionship = new System.Windows.Forms.Label();
+            this.lblAwayTeam = new System.Windows.Forms.Label();
+            this.lblHomeTeam = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.txtBoxHomeTeam = new System.Windows.Forms.TextBox();
+            this.txtBoxAwayTeam = new System.Windows.Forms.TextBox();
+            this.lblColon = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(223, 12);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar.Location = new System.Drawing.Point(223, 12);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 0;
             // 
             // btnCancel
             // 
@@ -55,97 +55,97 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // addGameButton
+            // btnAddGame
             // 
-            this.addGameButton.Location = new System.Drawing.Point(55, 151);
-            this.addGameButton.Name = "addGameButton";
-            this.addGameButton.Size = new System.Drawing.Size(75, 23);
-            this.addGameButton.TabIndex = 2;
-            this.addGameButton.Text = "Добави";
-            this.addGameButton.UseVisualStyleBackColor = true;
+            this.btnAddGame.Location = new System.Drawing.Point(55, 151);
+            this.btnAddGame.Name = "btnAddGame";
+            this.btnAddGame.Size = new System.Drawing.Size(75, 23);
+            this.btnAddGame.TabIndex = 2;
+            this.btnAddGame.Text = "Добави";
+            this.btnAddGame.UseVisualStyleBackColor = true;
             // 
-            // championshipCombo
+            // comboChampionship
             // 
-            this.championshipCombo.FormattingEnabled = true;
-            this.championshipCombo.Location = new System.Drawing.Point(90, 12);
-            this.championshipCombo.Name = "championshipCombo";
-            this.championshipCombo.Size = new System.Drawing.Size(121, 21);
-            this.championshipCombo.TabIndex = 3;
+            this.comboChampionship.FormattingEnabled = true;
+            this.comboChampionship.Location = new System.Drawing.Point(90, 12);
+            this.comboChampionship.Name = "comboChampionship";
+            this.comboChampionship.Size = new System.Drawing.Size(121, 21);
+            this.comboChampionship.TabIndex = 3;
             // 
-            // homeTeamCombo
+            // comboHomeTeam
             // 
-            this.homeTeamCombo.FormattingEnabled = true;
-            this.homeTeamCombo.Location = new System.Drawing.Point(90, 42);
-            this.homeTeamCombo.Name = "homeTeamCombo";
-            this.homeTeamCombo.Size = new System.Drawing.Size(121, 21);
-            this.homeTeamCombo.TabIndex = 3;
+            this.comboHomeTeam.FormattingEnabled = true;
+            this.comboHomeTeam.Location = new System.Drawing.Point(90, 42);
+            this.comboHomeTeam.Name = "comboHomeTeam";
+            this.comboHomeTeam.Size = new System.Drawing.Size(121, 21);
+            this.comboHomeTeam.TabIndex = 3;
             // 
-            // awayTeamCombo
+            // comboAwayTeam
             // 
-            this.awayTeamCombo.FormattingEnabled = true;
-            this.awayTeamCombo.Location = new System.Drawing.Point(90, 72);
-            this.awayTeamCombo.Name = "awayTeamCombo";
-            this.awayTeamCombo.Size = new System.Drawing.Size(121, 21);
-            this.awayTeamCombo.TabIndex = 3;
+            this.comboAwayTeam.FormattingEnabled = true;
+            this.comboAwayTeam.Location = new System.Drawing.Point(90, 72);
+            this.comboAwayTeam.Name = "comboAwayTeam";
+            this.comboAwayTeam.Size = new System.Drawing.Size(121, 21);
+            this.comboAwayTeam.TabIndex = 3;
             // 
-            // championshipLabel
+            // lblChampionship
             // 
-            this.championshipLabel.AutoSize = true;
-            this.championshipLabel.Location = new System.Drawing.Point(12, 12);
-            this.championshipLabel.Name = "championshipLabel";
-            this.championshipLabel.Size = new System.Drawing.Size(72, 13);
-            this.championshipLabel.TabIndex = 4;
-            this.championshipLabel.Text = "Първенство:";
+            this.lblChampionship.AutoSize = true;
+            this.lblChampionship.Location = new System.Drawing.Point(12, 12);
+            this.lblChampionship.Name = "lblChampionship";
+            this.lblChampionship.Size = new System.Drawing.Size(72, 13);
+            this.lblChampionship.TabIndex = 4;
+            this.lblChampionship.Text = "Първенство:";
             // 
-            // awayTeamLabel
+            // lblAwayTeam
             // 
-            this.awayTeamLabel.AutoSize = true;
-            this.awayTeamLabel.Location = new System.Drawing.Point(12, 72);
-            this.awayTeamLabel.Name = "awayTeamLabel";
-            this.awayTeamLabel.Size = new System.Drawing.Size(33, 13);
-            this.awayTeamLabel.TabIndex = 5;
-            this.awayTeamLabel.Text = "Гост:";
+            this.lblAwayTeam.AutoSize = true;
+            this.lblAwayTeam.Location = new System.Drawing.Point(12, 72);
+            this.lblAwayTeam.Name = "lblAwayTeam";
+            this.lblAwayTeam.Size = new System.Drawing.Size(33, 13);
+            this.lblAwayTeam.TabIndex = 5;
+            this.lblAwayTeam.Text = "Гост:";
             // 
-            // homeTeamLabel
+            // lblHomeTeam
             // 
-            this.homeTeamLabel.AutoSize = true;
-            this.homeTeamLabel.Location = new System.Drawing.Point(12, 42);
-            this.homeTeamLabel.Name = "homeTeamLabel";
-            this.homeTeamLabel.Size = new System.Drawing.Size(57, 13);
-            this.homeTeamLabel.TabIndex = 6;
-            this.homeTeamLabel.Text = "Домакин:";
+            this.lblHomeTeam.AutoSize = true;
+            this.lblHomeTeam.Location = new System.Drawing.Point(12, 42);
+            this.lblHomeTeam.Name = "lblHomeTeam";
+            this.lblHomeTeam.Size = new System.Drawing.Size(57, 13);
+            this.lblHomeTeam.TabIndex = 6;
+            this.lblHomeTeam.Text = "Домакин:";
             // 
-            // resultLabel
+            // lblResult
             // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(12, 99);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(56, 13);
-            this.resultLabel.TabIndex = 7;
-            this.resultLabel.Text = "Резултат:";
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(12, 99);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(56, 13);
+            this.lblResult.TabIndex = 7;
+            this.lblResult.Text = "Резултат:";
             // 
-            // textBox1
+            // txtBoxHomeTeam
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(40, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtBoxHomeTeam.Location = new System.Drawing.Point(100, 99);
+            this.txtBoxHomeTeam.Name = "txtBoxHomeTeam";
+            this.txtBoxHomeTeam.Size = new System.Drawing.Size(40, 20);
+            this.txtBoxHomeTeam.TabIndex = 8;
             // 
-            // textBox2
+            // txtBoxAwayTeam
             // 
-            this.textBox2.Location = new System.Drawing.Point(162, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(40, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtBoxAwayTeam.Location = new System.Drawing.Point(162, 99);
+            this.txtBoxAwayTeam.Name = "txtBoxAwayTeam";
+            this.txtBoxAwayTeam.Size = new System.Drawing.Size(40, 20);
+            this.txtBoxAwayTeam.TabIndex = 9;
             // 
-            // label2
+            // lblColon
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(146, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = ":";
+            this.lblColon.AutoSize = true;
+            this.lblColon.Location = new System.Drawing.Point(146, 99);
+            this.lblColon.Name = "lblColon";
+            this.lblColon.Size = new System.Drawing.Size(10, 13);
+            this.lblColon.TabIndex = 10;
+            this.lblColon.Text = ":";
             // 
             // AddGamesView
             // 
@@ -153,19 +153,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(469, 191);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.resultLabel);
-            this.Controls.Add(this.homeTeamLabel);
-            this.Controls.Add(this.awayTeamLabel);
-            this.Controls.Add(this.championshipLabel);
-            this.Controls.Add(this.homeTeamCombo);
-            this.Controls.Add(this.awayTeamCombo);
-            this.Controls.Add(this.championshipCombo);
-            this.Controls.Add(this.addGameButton);
+            this.Controls.Add(this.lblColon);
+            this.Controls.Add(this.txtBoxAwayTeam);
+            this.Controls.Add(this.txtBoxHomeTeam);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.lblHomeTeam);
+            this.Controls.Add(this.lblAwayTeam);
+            this.Controls.Add(this.lblChampionship);
+            this.Controls.Add(this.comboHomeTeam);
+            this.Controls.Add(this.comboAwayTeam);
+            this.Controls.Add(this.comboChampionship);
+            this.Controls.Add(this.btnAddGame);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.monthCalendar);
             this.Name = "AddGamesView";
             this.Text = "Добавяне на мачове";
             this.ResumeLayout(false);
@@ -175,18 +175,18 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button addGameButton;
-        private System.Windows.Forms.ComboBox championshipCombo;
-        private System.Windows.Forms.ComboBox homeTeamCombo;
-        private System.Windows.Forms.ComboBox awayTeamCombo;
-        private System.Windows.Forms.Label championshipLabel;
-        private System.Windows.Forms.Label awayTeamLabel;
-        private System.Windows.Forms.Label homeTeamLabel;
-        private System.Windows.Forms.Label resultLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAddGame;
+        private System.Windows.Forms.ComboBox comboChampionship;
+        private System.Windows.Forms.ComboBox comboHomeTeam;
+        private System.Windows.Forms.ComboBox comboAwayTeam;
+        private System.Windows.Forms.Label lblChampionship;
+        private System.Windows.Forms.Label lblAwayTeam;
+        private System.Windows.Forms.Label lblHomeTeam;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.TextBox txtBoxHomeTeam;
+        private System.Windows.Forms.TextBox txtBoxAwayTeam;
+        private System.Windows.Forms.Label lblColon;
     }
 }

@@ -6,6 +6,7 @@
 -- Generated from EDMX file: C:\Users\Kiril\Documents\git\FootballInfo\FootballInfoSystem\FootballSystemModel.edmx
 -- --------------------------------------------------
 
+CREATE DATABASE [FootballSystemDatabase];
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [FootballSystemDatabase];
