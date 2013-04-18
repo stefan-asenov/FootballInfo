@@ -256,6 +256,6 @@
         private System.Windows.Forms.DataGridView standingGridView;
         private System.Windows.Forms.Label leagueNameLabel;
         private System.Windows.Forms.PictureBox leagueCountryImage;
-	    private System.Windows.Forms.Label lblUsername;
+	private System.Windows.Forms.Label lblUsername;
     }
 }

@@ -73,7 +73,7 @@ namespace FootballInfoSystem.Data
             {
                 dbConnection = new SqlConnection(DB_CONNECTION_STRING);
                 dbConnection.Open();
-                string commandText = "select * from Teams where League_id = @leagueId";
+                string commandText = "select * from Teams where League_id = @leagueId order by points desc";
                 SqlCommand cmd = new SqlCommand(commandText, dbConnection);
                 cmd.Parameters.Add(new SqlParameter("@leagueId", leagueId));
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -119,6 +119,36 @@ namespace FootballInfoSystem.Data
                     dbConnection.Close();
                 }
             }
+        }
+
+        public static League GetLeague(int leagueId)
+        {
+            League league = new League();
+            SqlConnection dbConnection = null;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select * from Leagues where id = @leagueId";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@leagueId", leagueId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    league.Id = reader.GetInt32(0);
+                    league.name = reader.GetString(1);
+                    league.country = reader.GetString(2);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return league;
         }
 
     }

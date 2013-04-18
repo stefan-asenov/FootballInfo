@@ -12,9 +12,15 @@ namespace FootballInfoSystem.View {
     public partial class AddFavouriteTeamView : Form {
         public AddFavouriteTeamView() {
             InitializeComponent();
+<<<<<<< Updated upstream
             comboLeagues.ValueMember = "id";
             comboLeagues.DisplayMember = "name";
             comboLeagues.DataSource = DBUtils.GetLeagues();  
+=======
+            leaguesCombo.ValueMember = "id";
+            leaguesCombo.DisplayMember = "name";
+            leaguesCombo.DataSource = DBUtils.GetLeagues();
+>>>>>>> Stashed changes
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {

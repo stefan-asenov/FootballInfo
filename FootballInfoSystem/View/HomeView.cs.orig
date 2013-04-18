@@ -15,11 +15,16 @@ namespace FootballInfoSystem.View
         public HomeView()
         {
             InitializeComponent();
-	        HandleLogin();
+<<<<<<< HEAD
+            HandleLogin();
+            favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(2);
+=======
+            //TODO get authenticated user id;
             int userID = 1;
             favoriteTeamCombo.ValueMember = "id";
             favoriteTeamCombo.DisplayMember = "name";
             favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(userID);
+>>>>>>> 972124119ffb0a8b072e8fcba5c8eb825e31b2a0
         }
 
         private void addFavoriteTeamImage_Click(object sender, EventArgs e) {
@@ -28,6 +33,7 @@ namespace FootballInfoSystem.View
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+<<<<<<< HEAD
             this.Hide();
             LoginFormView loginForm = new LoginFormView();
             loginForm.ShowDialog();
@@ -38,7 +44,9 @@ namespace FootballInfoSystem.View
             DialogResult loginResult = loginForm.ShowDialog();
             while (loginResult != DialogResult.OK) {}
             lblUsername.Text = loginForm.user.firstName;
-        }
+=======
+            Program.ExitApplication(1);
+        }        
         private void UpdateStandingTable(int leagueId)
         {
             standingGridView.DataSource = DBUtils.GetTeamsInLeague(leagueId);
@@ -64,6 +72,7 @@ namespace FootballInfoSystem.View
                 UpdateStandingTable(leagueId);
                 UpdateLeagueInfo(leagueId);
             }
+>>>>>>> 972124119ffb0a8b072e8fcba5c8eb825e31b2a0
         }
     }
 }
