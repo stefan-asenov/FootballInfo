@@ -29,8 +29,7 @@ namespace FootballInfoSystem.View
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             this.Hide();
-            LoginFormView loginForm = new LoginFormView();
-            loginForm.ShowDialog();
+            HandleLogin();
         }
 
         private void HandleLogin() {
@@ -38,6 +37,7 @@ namespace FootballInfoSystem.View
             DialogResult loginResult = loginForm.ShowDialog();
             while (loginResult != DialogResult.OK) {}
             lblUsername.Text = loginForm.user.firstName;
+            this.Show();
         }
         private void UpdateStandingTable(int leagueId)
         {
