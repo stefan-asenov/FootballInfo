@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FootballInfoSystem.Data;
 
 namespace FootballInfoSystem.Logic {
     class LoginValidation {
@@ -27,14 +28,13 @@ namespace FootballInfoSystem.Logic {
                 return false;
 
             }
-            /*User queryResult = UserData.IsUserPassCorrect(username, password);
+            User queryResult = UserData.IsUserPassCorrect(username, password);
             if (queryResult == null) {
                 user = null;
                 ErrorText = "Въвели сте грешно потребителско име или парола!";
                 return false;
-            }*/
-            user = new User();
-            user.firstName = "Stefan";
+            }
+            user = queryResult;
             return true;
         }
 

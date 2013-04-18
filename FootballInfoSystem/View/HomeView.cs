@@ -34,7 +34,7 @@ namespace FootballInfoSystem.View
             LoginFormView loginForm = new LoginFormView();
             DialogResult loginResult = loginForm.ShowDialog();
             while (loginResult != DialogResult.OK) {}
-            lblUsername.Text = loginForm.user.firstName;
+            lblUsername.Text = "Здравей, " + loginForm.user.firstName + " " + loginForm.user.lastName;
             this.Show();
         }
 

@@ -10,7 +10,13 @@ namespace FootballInfoSystem.Data
     class DBUtils
     {
         private const string DB_CONNECTION_STRING = @"Data Source=.\SQLEXPRESS;Initial Catalog=FootballSystemDatabase;Integrated Security=True";
-        
+
+        private DBUtils() {}
+
+        public static string getDbConnectionString() {
+            return DB_CONNECTION_STRING;
+        }
+
         public static DataTable GetFavoriteTeams(int userId)
         {
             SqlConnection dbConnection = null;

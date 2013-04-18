@@ -35,6 +35,7 @@
             this.leagueCountryImageStandingTab = new System.Windows.Forms.PictureBox();
             this.standingGridView = new System.Windows.Forms.DataGridView();
             this.programTab = new System.Windows.Forms.TabPage();
+            this.leagueNameLabel = new System.Windows.Forms.Label();
             this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.programGridView = new System.Windows.Forms.DataGridView();
             this.forecastTab = new System.Windows.Forms.TabPage();
@@ -46,11 +47,8 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
-            this.leagueNameLabel = new System.Windows.Forms.Label();
             this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-	    this.lblUsername = new System.Windows.Forms.Label();
-
-            this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblUsername = new System.Windows.Forms.Label();
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
@@ -133,6 +131,16 @@
             this.programTab.Text = "Програма";
             this.programTab.UseVisualStyleBackColor = true;
             // 
+            // leagueNameLabel
+            // 
+            this.leagueNameLabel.AutoSize = true;
+            this.leagueNameLabel.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.leagueNameLabel.Location = new System.Drawing.Point(90, 3);
+            this.leagueNameLabel.Name = "leagueNameLabel";
+            this.leagueNameLabel.Size = new System.Drawing.Size(47, 29);
+            this.leagueNameLabel.TabIndex = 3;
+            this.leagueNameLabel.Text = "asd";
+            // 
             // leagueCountryImage
             // 
             this.leagueCountryImage.Location = new System.Drawing.Point(0, 0);
@@ -206,7 +214,7 @@
             this.exitToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(733, 24);
+            this.mainMenu.Size = new System.Drawing.Size(653, 24);
             this.mainMenu.TabIndex = 4;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -235,34 +243,24 @@
             this.addFavoriteTeamImage.TabStop = false;
             this.addFavoriteTeamImage.Click += new System.EventHandler(this.addFavoriteTeamImage_Click);
             // 
+            // footballSystemDatabaseEntitiesBindingSource
+            // 
+            this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
+            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(681, 28);
+            this.lblUsername.Location = new System.Drawing.Point(512, 34);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(35, 13);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "label1";
             // 
-	    // leagueNameLabel
-            // 
-            this.leagueNameLabel.AutoSize = true;
-            this.leagueNameLabel.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.leagueNameLabel.Location = new System.Drawing.Point(90, 3);
-            this.leagueNameLabel.Name = "leagueNameLabel";
-            this.leagueNameLabel.Size = new System.Drawing.Size(47, 29);
-            this.leagueNameLabel.TabIndex = 3;
-            this.leagueNameLabel.Text = "asd";
-            // 
-            // footballSystemDatabaseEntitiesBindingSource
-            // 
-            this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
-            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 406);
+            this.ClientSize = new System.Drawing.Size(653, 368);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.addFavoriteTeamImage);
             this.Controls.Add(this.favoriteTeamCombo);
