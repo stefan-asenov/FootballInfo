@@ -29,7 +29,11 @@ namespace FootballInfoSystem.View
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Program.ExitApplication(1);
+<<<<<<< Updated upstream
         }        
+=======
+        }
+
         private void UpdateStandingTable(int leagueId)
         {
             standingGridView.DataSource = DBUtils.GetTeamsInLeague(leagueId);
@@ -40,21 +44,15 @@ namespace FootballInfoSystem.View
             standingGridView.Columns["League_id"].Visible = false;
         }
 
-        private void UpdateLeagueInfo(int leagueId)
-        {
-            League league = DBUtils.GetLeague(leagueId);
-            leagueCountryImage.ImageLocation = "Resources/" + league.country + ".png";
-            leagueNameLabel.Text = league.name;
-        }
-
         private void favoriteTeamChanged(object sender, EventArgs e)
         {
             if (favoriteTeamCombo.SelectedItem is DataRowView)
             {
                 int leagueId = int.Parse(((DataRowView)favoriteTeamCombo.SelectedItem).Row["League_id"].ToString());
                 UpdateStandingTable(leagueId);
-                UpdateLeagueInfo(leagueId);
             }
         }
+        
+>>>>>>> Stashed changes
     }
 }
