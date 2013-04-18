@@ -16,15 +16,13 @@ namespace FootballInfoSystem.View
         {
             InitializeComponent();
 	        HandleLogin();
-            int userID = 1;
-            favoriteTeamCombo.ValueMember = "id";
-            favoriteTeamCombo.DisplayMember = "name";
-            favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(userID);
+            UpdateFavoriteTeamsCombo();
         }
 
         private void addFavoriteTeamImage_Click(object sender, EventArgs e) {
             AddFavouriteTeamView favTeamView = new AddFavouriteTeamView();
             favTeamView.ShowDialog();
+            UpdateFavoriteTeamsCombo();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -38,6 +36,14 @@ namespace FootballInfoSystem.View
             while (loginResult != DialogResult.OK) {}
             lblUsername.Text = loginForm.user.firstName;
             this.Show();
+        }
+
+        private void UpdateFavoriteTeamsCombo()
+        {
+            int userID = 1;
+            favoriteTeamCombo.ValueMember = "id";
+            favoriteTeamCombo.DisplayMember = "name";
+            favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(userID);
         }
         private void UpdateStandingTable(int leagueId)
         {
@@ -53,7 +59,14 @@ namespace FootballInfoSystem.View
         {
             League league = DBUtils.GetLeague(leagueId);
             leagueCountryImage.ImageLocation = "Resources/" + league.country + ".png";
+            leagueCountryImageStandingTab.ImageLocation = "Resources/" + league.country + ".png";
             leagueNameLabel.Text = league.name;
+            leagueNameLabelStandingTab.Text = league.name;
+        }
+
+        private void UpdateProgramTable(int teamId)
+        {
+            programGridView.DataSource = DBUtils.GetMatches(teamId);
         }
 
         private void favoriteTeamChanged(object sender, EventArgs e)
@@ -63,6 +76,7 @@ namespace FootballInfoSystem.View
                 int leagueId = int.Parse(((DataRowView)favoriteTeamCombo.SelectedItem).Row["League_id"].ToString());
                 UpdateStandingTable(leagueId);
                 UpdateLeagueInfo(leagueId);
+                UpdateProgramTable((int)favoriteTeamCombo.SelectedValue);
             }
         }
     }

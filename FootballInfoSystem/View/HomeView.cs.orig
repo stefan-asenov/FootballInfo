@@ -15,25 +15,26 @@ namespace FootballInfoSystem.View
         public HomeView()
         {
             InitializeComponent();
-<<<<<<< HEAD
-            HandleLogin();
-            favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(2);
-=======
-            //TODO get authenticated user id;
+<<<<<<< Updated upstream
+	        HandleLogin();
             int userID = 1;
             favoriteTeamCombo.ValueMember = "id";
             favoriteTeamCombo.DisplayMember = "name";
             favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(userID);
->>>>>>> 972124119ffb0a8b072e8fcba5c8eb825e31b2a0
+=======
+            //TODO get authenticated user id;
+            UpdateFavoriteTeamsCombo();
+>>>>>>> Stashed changes
         }
 
         private void addFavoriteTeamImage_Click(object sender, EventArgs e) {
             AddFavouriteTeamView favTeamView = new AddFavouriteTeamView();
             favTeamView.ShowDialog();
+            UpdateFavoriteTeamsCombo();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-<<<<<<< HEAD
+<<<<<<< Updated upstream
             this.Hide();
             LoginFormView loginForm = new LoginFormView();
             loginForm.ShowDialog();
@@ -46,7 +47,16 @@ namespace FootballInfoSystem.View
             lblUsername.Text = loginForm.user.firstName;
 =======
             Program.ExitApplication(1);
-        }        
+        }
+
+        private void UpdateFavoriteTeamsCombo()
+        {
+            int userID = 1;
+            favoriteTeamCombo.ValueMember = "id";
+            favoriteTeamCombo.DisplayMember = "name";
+            favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(userID);
+>>>>>>> Stashed changes
+        }
         private void UpdateStandingTable(int leagueId)
         {
             standingGridView.DataSource = DBUtils.GetTeamsInLeague(leagueId);
@@ -61,7 +71,14 @@ namespace FootballInfoSystem.View
         {
             League league = DBUtils.GetLeague(leagueId);
             leagueCountryImage.ImageLocation = "Resources/" + league.country + ".png";
+            leagueCountryImageStandingTab.ImageLocation = "Resources/" + league.country + ".png";
             leagueNameLabel.Text = league.name;
+            leagueNameLabelStandingTab.Text = league.name;
+        }
+
+        private void UpdateProgramTable(int teamId)
+        {
+            programGridView.DataSource = DBUtils.GetMatches(teamId);
         }
 
         private void favoriteTeamChanged(object sender, EventArgs e)
@@ -71,8 +88,8 @@ namespace FootballInfoSystem.View
                 int leagueId = int.Parse(((DataRowView)favoriteTeamCombo.SelectedItem).Row["League_id"].ToString());
                 UpdateStandingTable(leagueId);
                 UpdateLeagueInfo(leagueId);
+                UpdateProgramTable((int)favoriteTeamCombo.SelectedValue);
             }
->>>>>>> 972124119ffb0a8b072e8fcba5c8eb825e31b2a0
         }
     }
 }
