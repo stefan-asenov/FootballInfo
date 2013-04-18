@@ -15,6 +15,7 @@ namespace FootballInfoSystem.View
         public HomeView()
         {
             InitializeComponent();
+            HandleLogin();
             favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(2);
         }
 
@@ -24,7 +25,16 @@ namespace FootballInfoSystem.View
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-            Program.ExitApplication(1);
-        }        
+            this.Hide();
+            LoginFormView loginForm = new LoginFormView();
+            loginForm.ShowDialog();
+        }
+
+        private void HandleLogin() {
+            LoginFormView loginForm = new LoginFormView();
+            DialogResult loginResult = loginForm.ShowDialog();
+            while (loginResult != DialogResult.OK) {}
+            lblUsername.Text = loginForm.user.firstName;
+        }
     }
 }

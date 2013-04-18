@@ -40,6 +40,7 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.mainTab.SuspendLayout();
             this.footballersTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -161,11 +162,21 @@
             this.addFavoriteTeamImage.TabStop = false;
             this.addFavoriteTeamImage.Click += new System.EventHandler(this.addFavoriteTeamImage_Click);
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(681, 28);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(35, 13);
+            this.lblUsername.TabIndex = 5;
+            this.lblUsername.Text = "label1";
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 406);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.addFavoriteTeamImage);
             this.Controls.Add(this.favoriteTeamCombo);
             this.Controls.Add(this.lblFavouriteTeam);
@@ -198,5 +209,6 @@
         private System.Windows.Forms.TabPage forecastTab;
         private System.Windows.Forms.TabPage footballersTab;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
