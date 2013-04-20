@@ -73,7 +73,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FootballSystemModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\GamePredictor.cs" />
     <Compile Include="Logic\LoginValidation.cs" />
+    <Compile Include="Logic\Prediction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AddGamesView.cs">

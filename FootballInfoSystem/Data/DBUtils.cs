@@ -284,5 +284,25 @@ namespace FootballInfoSystem.Data
             }
         }
 
+        public static IList<Game> getLatestGamesForTeam(int teamId, int gamesCount) {
+            IList<Game> games = new List<Game>();
+            using (SqlConnection dbConnection = new SqlConnection(DB_CONNECTION_STRING)) {
+                dbConnection.Open();
+                string commandText = "select top @gamesCount * from Games as game, Teams as homeTeam, Teams as awayTeam where awayTeam.Id = game.awayTeam_Id and homeTeam.Id = game.homeTeam_Id and (game.awayTeam_Id=@teamId or game.homeTeam_Id=@teamId) order by game.matchDate";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@gamesCount", gamesCount));
+                cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows) {
+                    reader.Read();
+                    Game game = new Game();
+                    game.homeTeam = GetTeam(reader.GetInt32(3));
+                    game.awayTeam = GetTeam(reader.GetInt32(4));
+                    game.result = reader.GetString(2);
+                    games.Add(game);
+                }
+            }
+            return games;
+        }
     }
 }

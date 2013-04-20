@@ -125,6 +125,9 @@ namespace FootballInfoSystem.View
             statisticsChart.Legends[0].Enabled = true;
         }
 
+        private void UpdatePredictedGames(int teamId) {
+
+        }
 
         private void favoriteTeamChanged(object sender, EventArgs e)
         {
@@ -136,6 +139,7 @@ namespace FootballInfoSystem.View
                 UpdateProgramTable((int)favoriteTeamCombo.SelectedValue);
                 UpdateFootballersTable((int)favoriteTeamCombo.SelectedValue);
                 UpdateStatisticsChart((int)favoriteTeamCombo.SelectedValue);
+                UpdatePredictedGames((int) favoriteTeamCombo.SelectedValue);
             }
         }
 
