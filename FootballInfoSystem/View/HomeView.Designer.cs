@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainTab = new System.Windows.Forms.TabControl();
             this.standingTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabelStandingTab = new System.Windows.Forms.Label();
@@ -39,8 +42,9 @@
             this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.programGridView = new System.Windows.Forms.DataGridView();
             this.forecastTab = new System.Windows.Forms.TabPage();
+            this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.footballersTab = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.footballersGridView = new System.Windows.Forms.DataGridView();
             this.lblFavouriteTeam = new System.Windows.Forms.Label();
             this.favoriteTeamCombo = new System.Windows.Forms.ComboBox();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
@@ -56,8 +60,10 @@
             this.programTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).BeginInit();
+            this.forecastTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
             this.footballersTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).BeginInit();
@@ -115,8 +121,10 @@
             this.standingGridView.Location = new System.Drawing.Point(-1, 49);
             this.standingGridView.Name = "standingGridView";
             this.standingGridView.ReadOnly = true;
+            this.standingGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.standingGridView.Size = new System.Drawing.Size(616, 216);
             this.standingGridView.TabIndex = 0;
+            this.standingGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.standingGridView_RowHeaderMouseClick);
             // 
             // programTab
             // 
@@ -157,11 +165,13 @@
             this.programGridView.Location = new System.Drawing.Point(-4, 48);
             this.programGridView.Name = "programGridView";
             this.programGridView.ReadOnly = true;
+            this.programGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.programGridView.Size = new System.Drawing.Size(619, 213);
             this.programGridView.TabIndex = 0;
             // 
             // forecastTab
             // 
+            this.forecastTab.Controls.Add(this.statisticsChart);
             this.forecastTab.Location = new System.Drawing.Point(4, 22);
             this.forecastTab.Name = "forecastTab";
             this.forecastTab.Padding = new System.Windows.Forms.Padding(3);
@@ -170,9 +180,26 @@
             this.forecastTab.Text = "Прогнози";
             this.forecastTab.UseVisualStyleBackColor = true;
             // 
+            // statisticsChart
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.statisticsChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.statisticsChart.Legends.Add(legend4);
+            this.statisticsChart.Location = new System.Drawing.Point(322, 0);
+            this.statisticsChart.Name = "statisticsChart";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Default";
+            this.statisticsChart.Series.Add(series4);
+            this.statisticsChart.Size = new System.Drawing.Size(311, 268);
+            this.statisticsChart.TabIndex = 0;
+            this.statisticsChart.Text = "Team statistics";
+            // 
             // footballersTab
             // 
-            this.footballersTab.Controls.Add(this.dataGridView1);
+            this.footballersTab.Controls.Add(this.footballersGridView);
             this.footballersTab.Location = new System.Drawing.Point(4, 22);
             this.footballersTab.Name = "footballersTab";
             this.footballersTab.Padding = new System.Windows.Forms.Padding(3);
@@ -181,13 +208,17 @@
             this.footballersTab.Text = "Футболисти";
             this.footballersTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // footballersGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(684, 289);
-            this.dataGridView1.TabIndex = 0;
+            this.footballersGridView.AllowUserToAddRows = false;
+            this.footballersGridView.AllowUserToDeleteRows = false;
+            this.footballersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.footballersGridView.Location = new System.Drawing.Point(7, 7);
+            this.footballersGridView.Name = "footballersGridView";
+            this.footballersGridView.ReadOnly = true;
+            this.footballersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.footballersGridView.Size = new System.Drawing.Size(602, 248);
+            this.footballersGridView.TabIndex = 0;
             // 
             // lblFavouriteTeam
             // 
@@ -234,7 +265,6 @@
             // addFavoriteTeamImage
             // 
             this.addFavoriteTeamImage.Image = global::FootballInfoSystem.Properties.Resources.add;
-            this.addFavoriteTeamImage.ImageLocation = "";
             this.addFavoriteTeamImage.Location = new System.Drawing.Point(224, 34);
             this.addFavoriteTeamImage.Name = "addFavoriteTeamImage";
             this.addFavoriteTeamImage.Size = new System.Drawing.Size(25, 25);
@@ -278,8 +308,10 @@
             this.programTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).EndInit();
+            this.forecastTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
             this.footballersTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).EndInit();
@@ -302,7 +334,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TabPage forecastTab;
         private System.Windows.Forms.TabPage footballersTab;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView standingGridView;
         private System.Windows.Forms.Label leagueNameLabelStandingTab;
         private System.Windows.Forms.PictureBox leagueCountryImageStandingTab;
@@ -312,5 +343,7 @@
 	private System.Windows.Forms.Label lblUsername;
 
         private System.Windows.Forms.BindingSource footballSystemDatabaseEntitiesBindingSource;
+        private System.Windows.Forms.DataGridView footballersGridView;
+        private System.Windows.Forms.DataVisualization.Charting.Chart statisticsChart;
     }
 }

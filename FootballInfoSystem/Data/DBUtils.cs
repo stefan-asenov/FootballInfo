@@ -20,6 +20,7 @@ namespace FootballInfoSystem.Data
         public static DataTable GetFavoriteTeams(int userId)
         {
             SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
             try
             {
                 dbConnection = new SqlConnection(DB_CONNECTION_STRING);
@@ -30,9 +31,7 @@ namespace FootballInfoSystem.Data
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    return dataTable;
                 }
             }
             finally
@@ -42,12 +41,51 @@ namespace FootballInfoSystem.Data
                     dbConnection.Close();
                 }
             }
-            return new DataTable();
+            return dataTable;
+        }
+
+        public static Team GetTeam(int teamId)
+        {
+            Team team = new Team();
+            SqlConnection dbConnection = null;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select * from Teams where id = @teamId";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    team.Id = reader.GetInt32(0);
+                    team.name = reader.GetString(1);
+                    team.stadium = reader.GetString(2);
+                    team.manager = reader.GetString(3);
+                    team.founded = reader.GetDateTime(4);
+                    team.points = reader.GetInt16(5);
+                    team.wins = reader.GetInt16(6);
+                    team.losts = reader.GetInt16(7);
+                    team.draws = reader.GetInt16(8);
+                    team.League = new League();
+                    team.League.Id = reader.GetInt32(9);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return team;
         }
 
         public static DataTable GetLeagues()
         {
             SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
             try
             {
                 dbConnection = new SqlConnection(DB_CONNECTION_STRING);
@@ -57,9 +95,7 @@ namespace FootballInfoSystem.Data
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    return dataTable;
                 }
             }
             finally
@@ -69,12 +105,13 @@ namespace FootballInfoSystem.Data
                     dbConnection.Close();
                 }
             }
-            return new DataTable();
+            return dataTable;
         }
 
         public static DataTable GetTeamsInLeague(int leagueId)
         {
             SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
             try
             {
                 dbConnection = new SqlConnection(DB_CONNECTION_STRING);
@@ -85,9 +122,7 @@ namespace FootballInfoSystem.Data
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    return dataTable;
                 }
             }
             finally
@@ -97,34 +132,7 @@ namespace FootballInfoSystem.Data
                     dbConnection.Close();
                 }
             }
-            return new DataTable();
-        }
-
-        public static bool АddFavoriteTeam(int userId, int teamId)
-        {
-            SqlConnection dbConnection = null;
-            try
-            {
-                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
-                dbConnection.Open();
-                string commandText = "insert into UserTeam(Users_Id, Teams_Id) values(@userId, @teamId)";
-                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-                cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                if (dbConnection != null)
-                {
-                    dbConnection.Close();
-                }
-            }
+            return dataTable;
         }
 
         public static League GetLeague(int leagueId)
@@ -160,19 +168,18 @@ namespace FootballInfoSystem.Data
         public static DataTable GetMatches(int teamId)
         {
             SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
             try
             {
                 dbConnection = new SqlConnection(DB_CONNECTION_STRING);
                 dbConnection.Open();
-                string commandText = "select game.matchDate, homeTeam.name, game.result, awayTeam.name from Games as game, Teams as homeTeam, Teams as awayTeam where awayTeam.Id = game.awayTeam_Id and homeTeam.Id = game.homeTeam_Id and (game.awayTeam_Id=@teamId or game.homeTeam_Id=@teamId)";
+                string commandText = "select game.matchDate, homeTeam.name, game.result, awayTeam.name from Games as game, Teams as homeTeam, Teams as awayTeam where awayTeam.Id = game.awayTeam_Id and homeTeam.Id = game.homeTeam_Id and (game.awayTeam_Id=@teamId or game.homeTeam_Id=@teamId) order by game.matchDate";
                 SqlCommand cmd = new SqlCommand(commandText, dbConnection);
                 cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    return dataTable;
                 }
             }
             finally
@@ -182,7 +189,61 @@ namespace FootballInfoSystem.Data
                     dbConnection.Close();
                 }
             }
-            return new DataTable();
+            return dataTable;
+        }
+
+        public static DataTable GetFootballers(int teamId)
+        {
+            SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select * from Footballers where Team_Id = @teamId";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dataTable.Load(reader);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return dataTable;
+        }
+
+        public static bool АddFavoriteTeam(int userId, int teamId)
+        {
+            SqlConnection dbConnection = null;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "insert into UserTeam(Users_Id, Teams_Id) values(@userId, @teamId)";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+                cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
         }
 
     }

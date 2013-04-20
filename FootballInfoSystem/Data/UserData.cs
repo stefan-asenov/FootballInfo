@@ -23,6 +23,7 @@ namespace FootballInfoSystem.Data {
                 if (reader.HasRows) {
                     reader.Read();
                     user = new User();
+                    user.Id = reader.GetInt32(0);
                     user.firstName = reader.GetString(3);
                     user.lastName = reader.GetString(4);
                 }
