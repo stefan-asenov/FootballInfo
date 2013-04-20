@@ -32,7 +32,6 @@
             this.lblDataWeight = new System.Windows.Forms.Label();
             this.lblDataHeight = new System.Windows.Forms.Label();
             this.lblDataBorn = new System.Windows.Forms.Label();
-            this.linkLblCountry = new System.Windows.Forms.LinkLabel();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblBorn = new System.Windows.Forms.Label();
             this.historyTab = new System.Windows.Forms.TabPage();
+            this.lblDataCountry = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.photoBox)).BeginInit();
             this.footballerTabControl.SuspendLayout();
             this.personalInfoTab.SuspendLayout();
@@ -79,12 +79,12 @@
             // 
             // infoPanel
             // 
+            this.infoPanel.Controls.Add(this.lblDataCountry);
             this.infoPanel.Controls.Add(this.lblDataNumber);
             this.infoPanel.Controls.Add(this.lblDataPosition);
             this.infoPanel.Controls.Add(this.lblDataWeight);
             this.infoPanel.Controls.Add(this.lblDataHeight);
             this.infoPanel.Controls.Add(this.lblDataBorn);
-            this.infoPanel.Controls.Add(this.linkLblCountry);
             this.infoPanel.Controls.Add(this.lblNumber);
             this.infoPanel.Controls.Add(this.lblPosition);
             this.infoPanel.Controls.Add(this.lblWeight);
@@ -142,17 +142,6 @@
             this.lblDataBorn.TabIndex = 8;
             this.lblDataBorn.Text = "label1";
             // 
-            // linkLblCountry
-            // 
-            this.linkLblCountry.AutoSize = true;
-            this.linkLblCountry.Location = new System.Drawing.Point(132, 63);
-            this.linkLblCountry.Name = "linkLblCountry";
-            this.linkLblCountry.Size = new System.Drawing.Size(55, 13);
-            this.linkLblCountry.TabIndex = 7;
-            this.linkLblCountry.TabStop = true;
-            this.linkLblCountry.Text = "linkLabel1";
-            this.linkLblCountry.VisitedLinkColor = System.Drawing.Color.Blue;
-            // 
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
@@ -201,9 +190,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.Location = new System.Drawing.Point(15, 10);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(23, 13);
+            this.lblName.Size = new System.Drawing.Size(41, 22);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "ime";
             // 
@@ -221,10 +211,19 @@
             this.historyTab.Location = new System.Drawing.Point(4, 22);
             this.historyTab.Name = "historyTab";
             this.historyTab.Padding = new System.Windows.Forms.Padding(3);
-            this.historyTab.Size = new System.Drawing.Size(401, 264);
+            this.historyTab.Size = new System.Drawing.Size(386, 224);
             this.historyTab.TabIndex = 1;
             this.historyTab.Text = "История";
             this.historyTab.UseVisualStyleBackColor = true;
+            // 
+            // lblDataCountry
+            // 
+            this.lblDataCountry.AutoSize = true;
+            this.lblDataCountry.Location = new System.Drawing.Point(132, 64);
+            this.lblDataCountry.Name = "lblDataCountry";
+            this.lblDataCountry.Size = new System.Drawing.Size(35, 13);
+            this.lblDataCountry.TabIndex = 9;
+            this.lblDataCountry.Text = "label1";
             // 
             // FootballerView
             // 
@@ -262,6 +261,6 @@
         private System.Windows.Forms.Label lblDataWeight;
         private System.Windows.Forms.Label lblDataHeight;
         private System.Windows.Forms.Label lblDataBorn;
-        private System.Windows.Forms.LinkLabel linkLblCountry;
+        private System.Windows.Forms.Label lblDataCountry;
     }
 }

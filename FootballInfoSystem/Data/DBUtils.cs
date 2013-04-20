@@ -192,6 +192,44 @@ namespace FootballInfoSystem.Data
             return dataTable;
         }
 
+        public static Footballer GetFootballer(int footballerId)
+        {
+            Footballer footballer = new Footballer();
+            SqlConnection dbConnection = null;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select * from Footballers where id = @footballerId";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@footballerId", footballerId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    footballer.Id = reader.GetInt32(0);
+                    footballer.name = reader.GetString(1);
+                    footballer.age = reader.GetString(2);
+                    footballer.nationality = reader.GetString(3);
+                    footballer.datеOfBirth = reader.GetDateTime(4);
+                    footballer.height = reader.GetInt16(5);
+                    footballer.weight = reader.GetInt16(6);
+                    footballer.number = reader.GetInt16(7);
+                    footballer.position = reader.GetString(8);
+                    footballer.Team = new Team();
+                    footballer.Team.Id = reader.GetInt32(9);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return footballer;
+        }
+
         public static DataTable GetFootballers(int teamId)
         {
             SqlConnection dbConnection = null;

@@ -154,5 +154,13 @@ namespace FootballInfoSystem.View
             TeamView teamView = new TeamView(teamId);
             teamView.Show();
         }
+
+        private void footballersGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow selectedRow = footballersGridView.Rows[e.RowIndex];
+            int footballerId = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+            FootballerView footballerView = new FootballerView(footballerId);
+            footballerView.Show();
+        }
     }
 }

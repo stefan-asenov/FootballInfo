@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainTab = new System.Windows.Forms.TabControl();
             this.standingTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabelStandingTab = new System.Windows.Forms.Label();
-            this.leagueCountryImageStandingTab = new System.Windows.Forms.PictureBox();
             this.standingGridView = new System.Windows.Forms.DataGridView();
             this.programTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabel = new System.Windows.Forms.Label();
-            this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.programGridView = new System.Windows.Forms.DataGridView();
             this.forecastTab = new System.Windows.Forms.TabPage();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -50,15 +48,15 @@
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
-            this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblUsername = new System.Windows.Forms.Label();
+            this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
+            this.leagueCountryImageStandingTab = new System.Windows.Forms.PictureBox();
+            this.leagueCountryImage = new System.Windows.Forms.PictureBox();
+            this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingGridView)).BeginInit();
             this.programTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).BeginInit();
             this.forecastTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
@@ -66,6 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,15 +104,6 @@
             this.leagueNameLabelStandingTab.TabIndex = 2;
             this.leagueNameLabelStandingTab.Text = "asd";
             // 
-            // leagueCountryImageStandingTab
-            // 
-            this.leagueCountryImageStandingTab.ErrorImage = global::FootballInfoSystem.Properties.Resources._default;
-            this.leagueCountryImageStandingTab.Location = new System.Drawing.Point(0, 0);
-            this.leagueCountryImageStandingTab.Name = "leagueCountryImageStandingTab";
-            this.leagueCountryImageStandingTab.Size = new System.Drawing.Size(75, 43);
-            this.leagueCountryImageStandingTab.TabIndex = 1;
-            this.leagueCountryImageStandingTab.TabStop = false;
-            // 
             // standingGridView
             // 
             this.standingGridView.AllowUserToAddRows = false;
@@ -129,8 +120,8 @@
             // programTab
             // 
             this.programTab.Controls.Add(this.leagueNameLabel);
-            this.programTab.Controls.Add(this.leagueCountryImage);
             this.programTab.Controls.Add(this.programGridView);
+            this.programTab.Controls.Add(this.leagueCountryImage);
             this.programTab.Location = new System.Drawing.Point(4, 22);
             this.programTab.Name = "programTab";
             this.programTab.Padding = new System.Windows.Forms.Padding(3);
@@ -148,14 +139,6 @@
             this.leagueNameLabel.Size = new System.Drawing.Size(47, 29);
             this.leagueNameLabel.TabIndex = 3;
             this.leagueNameLabel.Text = "asd";
-            // 
-            // leagueCountryImage
-            // 
-            this.leagueCountryImage.Location = new System.Drawing.Point(0, 0);
-            this.leagueCountryImage.Name = "leagueCountryImage";
-            this.leagueCountryImage.Size = new System.Drawing.Size(75, 42);
-            this.leagueCountryImage.TabIndex = 1;
-            this.leagueCountryImage.TabStop = false;
             // 
             // programGridView
             // 
@@ -182,17 +165,17 @@
             // 
             // statisticsChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.statisticsChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.statisticsChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.statisticsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.statisticsChart.Legends.Add(legend1);
             this.statisticsChart.Location = new System.Drawing.Point(322, 0);
             this.statisticsChart.Name = "statisticsChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Default";
-            this.statisticsChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Default";
+            this.statisticsChart.Series.Add(series1);
             this.statisticsChart.Size = new System.Drawing.Size(311, 268);
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Team statistics";
@@ -219,6 +202,7 @@
             this.footballersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.footballersGridView.Size = new System.Drawing.Size(602, 248);
             this.footballersGridView.TabIndex = 0;
+            this.footballersGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.footballersGridView_RowHeaderMouseClick);
             // 
             // lblFavouriteTeam
             // 
@@ -262,6 +246,15 @@
             this.exitToolStripMenuItem.Text = "Изход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(512, 34);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(35, 13);
+            this.lblUsername.TabIndex = 5;
+            this.lblUsername.Text = "label1";
+            // 
             // addFavoriteTeamImage
             // 
             this.addFavoriteTeamImage.Image = global::FootballInfoSystem.Properties.Resources.add;
@@ -273,18 +266,26 @@
             this.addFavoriteTeamImage.TabStop = false;
             this.addFavoriteTeamImage.Click += new System.EventHandler(this.addFavoriteTeamImage_Click);
             // 
+            // leagueCountryImageStandingTab
+            // 
+            this.leagueCountryImageStandingTab.ErrorImage = global::FootballInfoSystem.Properties.Resources._default;
+            this.leagueCountryImageStandingTab.Location = new System.Drawing.Point(0, 0);
+            this.leagueCountryImageStandingTab.Name = "leagueCountryImageStandingTab";
+            this.leagueCountryImageStandingTab.Size = new System.Drawing.Size(75, 43);
+            this.leagueCountryImageStandingTab.TabIndex = 1;
+            this.leagueCountryImageStandingTab.TabStop = false;
+            // 
+            // leagueCountryImage
+            // 
+            this.leagueCountryImage.Location = new System.Drawing.Point(0, 0);
+            this.leagueCountryImage.Name = "leagueCountryImage";
+            this.leagueCountryImage.Size = new System.Drawing.Size(75, 42);
+            this.leagueCountryImage.TabIndex = 1;
+            this.leagueCountryImage.TabStop = false;
+            // 
             // footballSystemDatabaseEntitiesBindingSource
             // 
             this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(512, 34);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(35, 13);
-            this.lblUsername.TabIndex = 5;
-            this.lblUsername.Text = "label1";
             // 
             // HomeView
             // 
@@ -302,11 +303,9 @@
             this.mainTab.ResumeLayout(false);
             this.standingTab.ResumeLayout(false);
             this.standingTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingGridView)).EndInit();
             this.programTab.ResumeLayout(false);
             this.programTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).EndInit();
             this.forecastTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
@@ -315,6 +314,8 @@
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
