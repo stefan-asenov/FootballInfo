@@ -24,14 +24,20 @@ namespace FootballInfoSystem.View {
             if (login.ValidateUserInput(out user)) {
                 this.user = user;
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+                this.Hide();
+                HomeView homeView = new HomeView(user);
             } else {
                 MessageBox.Show(login.ErrorText);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-            Program.ExitApplication(1);
+            Application.Exit();
+        }
+
+        private void LoginFormView_Activated(object sender, EventArgs e) {
+            this.txtBoxUsername.Text = "";
+            this.txtBoxPassword.Text = "";
         }
     }
 }

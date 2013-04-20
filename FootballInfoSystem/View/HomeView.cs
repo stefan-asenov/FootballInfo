@@ -14,10 +14,11 @@ namespace FootballInfoSystem.View
     public partial class HomeView : Form
     {
         private User user;
-        public HomeView()
+        public HomeView(User user)
         {
             InitializeComponent();
-	        HandleLogin();
+	        HandleLogin(user);
+            this.Show();
             UpdateFavoriteTeamsCombo();
         }
 
@@ -28,17 +29,13 @@ namespace FootballInfoSystem.View
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-            this.Hide();
-            HandleLogin();
+            this.Close();
+            Program.loginFormView.Show();
         }
 
-        private void HandleLogin() {
-            LoginFormView loginForm = new LoginFormView();
-            DialogResult loginResult = loginForm.ShowDialog();
-            while (loginResult != DialogResult.OK) {}
-            lblUsername.Text = "Здравей, " + loginForm.user.firstName + " " + loginForm.user.lastName;
-            this.Show();
-            user = loginForm.user;
+        private void HandleLogin(User user) {
+            lblUsername.Text = "Здравей, " + user.firstName + " " + user.lastName;
+            this.user = user;
         }
 
         private void UpdateFavoriteTeamsCombo()
@@ -161,6 +158,10 @@ namespace FootballInfoSystem.View
             int footballerId = Convert.ToInt32(selectedRow.Cells["Id"].Value);
             FootballerView footballerView = new FootballerView(footballerId);
             footballerView.Show();
+        }
+
+        private void HomeView_FormClosing(object sender, FormClosingEventArgs e) {
+            Program.ExitApplication(1);
         }
     }
 }

@@ -35,10 +35,12 @@
             this.mainTab = new System.Windows.Forms.TabControl();
             this.standingTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabelStandingTab = new System.Windows.Forms.Label();
+            this.leagueCountryImageStandingTab = new System.Windows.Forms.PictureBox();
             this.standingGridView = new System.Windows.Forms.DataGridView();
             this.programTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabel = new System.Windows.Forms.Label();
             this.programGridView = new System.Windows.Forms.DataGridView();
+            this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.forecastTab = new System.Windows.Forms.TabPage();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.footballersTab = new System.Windows.Forms.TabPage();
@@ -50,22 +52,20 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
-            this.leagueCountryImageStandingTab = new System.Windows.Forms.PictureBox();
-            this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingGridView)).BeginInit();
             this.programTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).BeginInit();
             this.forecastTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
             this.footballersTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +103,15 @@
             this.leagueNameLabelStandingTab.Size = new System.Drawing.Size(47, 29);
             this.leagueNameLabelStandingTab.TabIndex = 2;
             this.leagueNameLabelStandingTab.Text = "asd";
+            // 
+            // leagueCountryImageStandingTab
+            // 
+            this.leagueCountryImageStandingTab.ErrorImage = global::FootballInfoSystem.Properties.Resources._default;
+            this.leagueCountryImageStandingTab.Location = new System.Drawing.Point(0, 0);
+            this.leagueCountryImageStandingTab.Name = "leagueCountryImageStandingTab";
+            this.leagueCountryImageStandingTab.Size = new System.Drawing.Size(75, 43);
+            this.leagueCountryImageStandingTab.TabIndex = 1;
+            this.leagueCountryImageStandingTab.TabStop = false;
             // 
             // standingGridView
             // 
@@ -151,6 +160,14 @@
             this.programGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.programGridView.Size = new System.Drawing.Size(619, 213);
             this.programGridView.TabIndex = 0;
+            // 
+            // leagueCountryImage
+            // 
+            this.leagueCountryImage.Location = new System.Drawing.Point(0, 0);
+            this.leagueCountryImage.Name = "leagueCountryImage";
+            this.leagueCountryImage.Size = new System.Drawing.Size(75, 42);
+            this.leagueCountryImage.TabIndex = 1;
+            this.leagueCountryImage.TabStop = false;
             // 
             // forecastTab
             // 
@@ -266,23 +283,6 @@
             this.addFavoriteTeamImage.TabStop = false;
             this.addFavoriteTeamImage.Click += new System.EventHandler(this.addFavoriteTeamImage_Click);
             // 
-            // leagueCountryImageStandingTab
-            // 
-            this.leagueCountryImageStandingTab.ErrorImage = global::FootballInfoSystem.Properties.Resources._default;
-            this.leagueCountryImageStandingTab.Location = new System.Drawing.Point(0, 0);
-            this.leagueCountryImageStandingTab.Name = "leagueCountryImageStandingTab";
-            this.leagueCountryImageStandingTab.Size = new System.Drawing.Size(75, 43);
-            this.leagueCountryImageStandingTab.TabIndex = 1;
-            this.leagueCountryImageStandingTab.TabStop = false;
-            // 
-            // leagueCountryImage
-            // 
-            this.leagueCountryImage.Location = new System.Drawing.Point(0, 0);
-            this.leagueCountryImage.Name = "leagueCountryImage";
-            this.leagueCountryImage.Size = new System.Drawing.Size(75, 42);
-            this.leagueCountryImage.TabIndex = 1;
-            this.leagueCountryImage.TabStop = false;
-            // 
             // footballSystemDatabaseEntitiesBindingSource
             // 
             this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
@@ -300,13 +300,16 @@
             this.Controls.Add(this.mainMenu);
             this.Name = "HomeView";
             this.Text = "Футболна информационна система";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeView_FormClosing);
             this.mainTab.ResumeLayout(false);
             this.standingTab.ResumeLayout(false);
             this.standingTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingGridView)).EndInit();
             this.programTab.ResumeLayout(false);
             this.programTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.programGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).EndInit();
             this.forecastTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
             this.footballersTab.ResumeLayout(false);
@@ -314,8 +317,6 @@
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

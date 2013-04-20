@@ -99,6 +99,7 @@
             this.Controls.Add(this.lblUsername);
             this.Name = "LoginFormView";
             this.Text = "Вход";
+            this.Activated += new System.EventHandler(this.LoginFormView_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

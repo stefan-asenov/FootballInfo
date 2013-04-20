@@ -10,18 +10,20 @@ namespace FootballInfoSystem {
         /// The main entry point for the application.
         /// </summary>
 
-        static int exitCode = 0;
+        private static int exitCode = 0;
+        public static LoginFormView loginFormView { get; private set; }
 
         [STAThread]
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-	        Application.Run(new HomeView());
+            loginFormView = new LoginFormView();
+            Application.Run(loginFormView);
         }
 
         public static void ExitApplication(int exitCode) {
-            Program.exitCode = exitCode;
             Application.Exit();
         }
+
     }
 }

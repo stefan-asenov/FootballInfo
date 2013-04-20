@@ -10,10 +10,8 @@ namespace FootballInfoSystem.Data {
 
 
         public static User IsUserPassCorrect(string username, string password) {
-            SqlConnection dbConnection = null;
             User user = null;
-            try {
-                dbConnection = new SqlConnection(DBUtils.getDbConnectionString());
+            using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {
                 dbConnection.Open();
                 string commandText = "select * from Users where userName = @username and password = @password";
                 SqlCommand cmd = new SqlCommand(commandText, dbConnection);
@@ -27,11 +25,7 @@ namespace FootballInfoSystem.Data {
                     user.firstName = reader.GetString(3);
                     user.lastName = reader.GetString(4);
                 }
-            } finally {
-                if (dbConnection != null) {
-                    dbConnection.Close();
-                }
-            }
+            } 
             return user;
         }
     }
