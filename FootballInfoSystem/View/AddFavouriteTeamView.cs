@@ -10,11 +10,13 @@ using FootballInfoSystem.Data;
 
 namespace FootballInfoSystem.View {
     public partial class AddFavouriteTeamView : Form {
-        public AddFavouriteTeamView() {
+        private int userId;
+        public AddFavouriteTeamView(int userId) {
             InitializeComponent();
+            this.userId = userId;
             comboLeagues.ValueMember = "id";
             comboLeagues.DisplayMember = "name";
-            comboLeagues.DataSource = DBUtils.GetLeagues();  
+            comboLeagues.DataSource = DBUtils.GetLeagues(); 
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -22,21 +24,29 @@ namespace FootballInfoSystem.View {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
-            //TODO get user ID://
-            int userID = 1;
-            try 
+            string teamName = ((DataRowView)comboTeams.SelectedItem).Row[comboTeams.DisplayMember].ToString();
+            string message = "Наистина ли искате да добавите " + teamName + " в любими отбори?";
+            string caption = "Любими отбори";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, caption, buttons,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                bool isAdded = DBUtils.АddFavoriteTeam(userID, (int)comboTeams.SelectedValue);
-                if (isAdded)
+                try
                 {
-                    MessageBox.Show("Успешо добавихте любим отбор.");
-                    return;
+                    bool isAdded = DBUtils.АddFavoriteTeam(userId, (int)comboTeams.SelectedValue);
+                    if (isAdded)
+                    {
+                        MessageBox.Show("Успешо добавихте "+ teamName + " в любими отбор.");
+                        return;
+                    }
+                    MessageBox.Show(teamName + " вече е добавен в любими.");
                 }
-                MessageBox.Show("Този отбор вече е добавен в любими.");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Не може да добавяте любим отбор, ако не сте избрали такъв.");
+                catch (Exception)
+                {
+                    MessageBox.Show("Не може да добавяте любим отбор, ако не сте избрали такъв.");
+                }
             }
         }
 

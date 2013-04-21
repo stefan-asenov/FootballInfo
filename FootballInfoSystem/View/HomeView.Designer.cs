@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainTab = new System.Windows.Forms.TabControl();
             this.standingTab = new System.Windows.Forms.TabPage();
             this.leagueNameLabelStandingTab = new System.Windows.Forms.Label();
@@ -43,6 +43,11 @@
             this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.forecastTab = new System.Windows.Forms.TabPage();
             this.predictionsDataGrid = new System.Windows.Forms.DataGridView();
+            this.homeTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.homeWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AwayWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.awayTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.footballersTab = new System.Windows.Forms.TabPage();
             this.footballersGridView = new System.Windows.Forms.DataGridView();
@@ -54,11 +59,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
             this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.homeTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.homeWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AwayWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.awayTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
@@ -202,19 +202,49 @@
             this.predictionsDataGrid.Size = new System.Drawing.Size(328, 149);
             this.predictionsDataGrid.TabIndex = 1;
             // 
+            // homeTeamColumn
+            // 
+            this.homeTeamColumn.HeaderText = "Домакин";
+            this.homeTeamColumn.Name = "homeTeamColumn";
+            this.homeTeamColumn.Width = 95;
+            // 
+            // homeWinCoef
+            // 
+            this.homeWinCoef.HeaderText = "1";
+            this.homeWinCoef.Name = "homeWinCoef";
+            this.homeWinCoef.Width = 30;
+            // 
+            // drawCoef
+            // 
+            this.drawCoef.HeaderText = "X";
+            this.drawCoef.Name = "drawCoef";
+            this.drawCoef.Width = 30;
+            // 
+            // AwayWinCoef
+            // 
+            this.AwayWinCoef.HeaderText = "2";
+            this.AwayWinCoef.Name = "AwayWinCoef";
+            this.AwayWinCoef.Width = 30;
+            // 
+            // awayTeamColumn
+            // 
+            this.awayTeamColumn.HeaderText = "Гост";
+            this.awayTeamColumn.Name = "awayTeamColumn";
+            this.awayTeamColumn.Width = 95;
+            // 
             // statisticsChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.statisticsChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.statisticsChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.statisticsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.statisticsChart.Legends.Add(legend1);
             this.statisticsChart.Location = new System.Drawing.Point(359, 0);
             this.statisticsChart.Name = "statisticsChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Default";
-            this.statisticsChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Default";
+            this.statisticsChart.Series.Add(series1);
             this.statisticsChart.Size = new System.Drawing.Size(274, 268);
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Team statistics";
@@ -277,6 +307,7 @@
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.adminToolStripMenuItem.Text = "Админ";
+            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -308,36 +339,6 @@
             // footballSystemDatabaseEntitiesBindingSource
             // 
             this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
-            // 
-            // homeTeamColumn
-            // 
-            this.homeTeamColumn.HeaderText = "Домакин";
-            this.homeTeamColumn.Name = "homeTeamColumn";
-            this.homeTeamColumn.Width = 95;
-            // 
-            // homeWinCoef
-            // 
-            this.homeWinCoef.HeaderText = "1";
-            this.homeWinCoef.Name = "homeWinCoef";
-            this.homeWinCoef.Width = 30;
-            // 
-            // drawCoef
-            // 
-            this.drawCoef.HeaderText = "X";
-            this.drawCoef.Name = "drawCoef";
-            this.drawCoef.Width = 30;
-            // 
-            // AwayWinCoef
-            // 
-            this.AwayWinCoef.HeaderText = "2";
-            this.AwayWinCoef.Name = "AwayWinCoef";
-            this.AwayWinCoef.Width = 30;
-            // 
-            // awayTeamColumn
-            // 
-            this.awayTeamColumn.HeaderText = "Гост";
-            this.awayTeamColumn.Name = "awayTeamColumn";
-            this.awayTeamColumn.Width = 95;
             // 
             // HomeView
             // 

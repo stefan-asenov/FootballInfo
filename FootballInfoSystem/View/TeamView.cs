@@ -14,6 +14,7 @@ namespace FootballInfoSystem.View {
         public TeamView(int teamId) {
             InitializeComponent();
             UpdateTeamInfo(teamId);
+            UpdateFootballersTable(teamId);
         }
 
         private void UpdateTeamInfo(int teamId)
@@ -46,6 +47,35 @@ namespace FootballInfoSystem.View {
             statisticsChart.Series["Default"]["PieLabelStyle"] = "Disabled";
             statisticsChart.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
             statisticsChart.Legends[0].Enabled = true;
+        }
+
+
+        private void UpdateFootballersTable(int teamId)
+        {
+            DataTable data = DBUtils.GetFootballers(teamId); ;
+            footballersGridView.DataSource = data;
+            if (data.Rows.Count != 0)
+            {
+                footballersGridView.Columns["Id"].Visible = false;
+                footballersGridView.Columns["age"].Visible = false;
+                footballersGridView.Columns["nationality"].Visible = false;
+                footballersGridView.Columns["datеOfBirth"].Visible = false;
+                footballersGridView.Columns["height"].Visible = false;
+                footballersGridView.Columns["weight"].Visible = false;
+                footballersGridView.Columns["Team_id"].Visible = false;
+
+                footballersGridView.Columns["name"].HeaderText = "Име";
+                footballersGridView.Columns["position"].HeaderText = "Позиция";
+                footballersGridView.Columns["number"].HeaderText = "Номер";
+            }
+        }
+
+        private void footballersGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow selectedRow = footballersGridView.Rows[e.RowIndex];
+            int footballerId = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+            FootballerView footballerView = new FootballerView(footballerId);
+            footballerView.Show();
         }
     }
 }

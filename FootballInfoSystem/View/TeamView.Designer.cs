@@ -23,11 +23,13 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.teamControl = new System.Windows.Forms.TabControl();
             this.teamInfoTab = new System.Windows.Forms.TabPage();
+            this.pictureTeamLogo = new System.Windows.Forms.PictureBox();
+            this.lblTeamName = new System.Windows.Forms.Label();
             this.lblCoachData = new System.Windows.Forms.Label();
             this.lblStadiumData = new System.Windows.Forms.Label();
             this.lblFoundedData = new System.Windows.Forms.Label();
@@ -36,14 +38,15 @@
             this.lblTeamFounded = new System.Windows.Forms.Label();
             this.teamSquadTab = new System.Windows.Forms.TabPage();
             this.teamStatsTab = new System.Windows.Forms.TabPage();
-            this.lblTeamName = new System.Windows.Forms.Label();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pictureTeamLogo = new System.Windows.Forms.PictureBox();
+            this.footballersGridView = new System.Windows.Forms.DataGridView();
             this.teamControl.SuspendLayout();
             this.teamInfoTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTeamLogo)).BeginInit();
+            this.teamSquadTab.SuspendLayout();
             this.teamStatsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTeamLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // teamControl
@@ -74,6 +77,25 @@
             this.teamInfoTab.TabIndex = 0;
             this.teamInfoTab.Text = "Информация";
             this.teamInfoTab.UseVisualStyleBackColor = true;
+            // 
+            // pictureTeamLogo
+            // 
+            this.pictureTeamLogo.ErrorImage = global::FootballInfoSystem.Properties.Resources.default_img;
+            this.pictureTeamLogo.Location = new System.Drawing.Point(9, 43);
+            this.pictureTeamLogo.Name = "pictureTeamLogo";
+            this.pictureTeamLogo.Size = new System.Drawing.Size(144, 144);
+            this.pictureTeamLogo.TabIndex = 4;
+            this.pictureTeamLogo.TabStop = false;
+            // 
+            // lblTeamName
+            // 
+            this.lblTeamName.AutoSize = true;
+            this.lblTeamName.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTeamName.Location = new System.Drawing.Point(33, 13);
+            this.lblTeamName.Name = "lblTeamName";
+            this.lblTeamName.Size = new System.Drawing.Size(53, 18);
+            this.lblTeamName.TabIndex = 3;
+            this.lblTeamName.Text = "label1";
             // 
             // lblCoachData
             // 
@@ -131,6 +153,7 @@
             // 
             // teamSquadTab
             // 
+            this.teamSquadTab.Controls.Add(this.footballersGridView);
             this.teamSquadTab.Location = new System.Drawing.Point(4, 22);
             this.teamSquadTab.Name = "teamSquadTab";
             this.teamSquadTab.Padding = new System.Windows.Forms.Padding(3);
@@ -150,43 +173,34 @@
             this.teamStatsTab.Text = "Статистика";
             this.teamStatsTab.UseVisualStyleBackColor = true;
             // 
-            // lblTeamName
-            // 
-            this.lblTeamName.AutoSize = true;
-            this.lblTeamName.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTeamName.Location = new System.Drawing.Point(33, 13);
-            this.lblTeamName.Name = "lblTeamName";
-            this.lblTeamName.Size = new System.Drawing.Size(53, 18);
-            this.lblTeamName.TabIndex = 3;
-            this.lblTeamName.Text = "label1";
-            // 
             // statisticsChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.statisticsChart.ChartAreas.Add(chartArea3);
+            chartArea5.Name = "ChartArea1";
+            this.statisticsChart.ChartAreas.Add(chartArea5);
             this.statisticsChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statisticsChart.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            legend3.Name = "Legend1";
-            this.statisticsChart.Legends.Add(legend3);
+            legend5.Name = "Legend1";
+            this.statisticsChart.Legends.Add(legend5);
             this.statisticsChart.Location = new System.Drawing.Point(3, 3);
             this.statisticsChart.Name = "statisticsChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Default";
-            this.statisticsChart.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Default";
+            this.statisticsChart.Series.Add(series5);
             this.statisticsChart.Size = new System.Drawing.Size(553, 315);
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "chart1";
             // 
-            // pictureTeamLogo
+            // footballersGridView
             // 
-            this.pictureTeamLogo.ErrorImage = global::FootballInfoSystem.Properties.Resources.default_img;
-            this.pictureTeamLogo.Location = new System.Drawing.Point(9, 43);
-            this.pictureTeamLogo.Name = "pictureTeamLogo";
-            this.pictureTeamLogo.Size = new System.Drawing.Size(144, 144);
-            this.pictureTeamLogo.TabIndex = 4;
-            this.pictureTeamLogo.TabStop = false;
+            this.footballersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.footballersGridView.Location = new System.Drawing.Point(7, 7);
+            this.footballersGridView.Name = "footballersGridView";
+            this.footballersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.footballersGridView.Size = new System.Drawing.Size(543, 298);
+            this.footballersGridView.TabIndex = 0;
+            this.footballersGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.footballersGridView_RowHeaderMouseClick);
             // 
             // TeamView
             // 
@@ -199,9 +213,11 @@
             this.teamControl.ResumeLayout(false);
             this.teamInfoTab.ResumeLayout(false);
             this.teamInfoTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTeamLogo)).EndInit();
+            this.teamSquadTab.ResumeLayout(false);
             this.teamStatsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statisticsChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTeamLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -221,5 +237,6 @@
         private System.Windows.Forms.Label lblTeamName;
         private System.Windows.Forms.DataVisualization.Charting.Chart statisticsChart;
         private System.Windows.Forms.PictureBox pictureTeamLogo;
+        private System.Windows.Forms.DataGridView footballersGridView;
     }
 }

@@ -23,7 +23,7 @@ namespace FootballInfoSystem.View
         }
 
         private void addFavoriteTeamImage_Click(object sender, EventArgs e) {
-            AddFavouriteTeamView favTeamView = new AddFavouriteTeamView();
+            AddFavouriteTeamView favTeamView = new AddFavouriteTeamView(user.Id);
             favTeamView.ShowDialog();
             UpdateFavoriteTeamsCombo();
         }
@@ -143,11 +143,6 @@ namespace FootballInfoSystem.View
             }
         }
 
-        private void standingGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void standingGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridViewRow selectedRow = standingGridView.Rows[e.RowIndex];
@@ -166,6 +161,12 @@ namespace FootballInfoSystem.View
 
         private void HomeView_FormClosing(object sender, FormClosingEventArgs e) {
             Program.ExitApplication(1);
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddGamesView adminView = new AddGamesView();
+            adminView.Show();
         }
     }
 }

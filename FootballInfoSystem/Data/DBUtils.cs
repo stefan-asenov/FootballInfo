@@ -135,6 +135,34 @@ namespace FootballInfoSystem.Data
             return dataTable;
         }
 
+        public static DataTable GetTeamsInLeagueWithoutSpecificTeam(int leagueId, int excludedTeamId)
+        {
+            SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select * from Teams where League_id = @leagueId and id != @excludedTeamId order by points desc";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@leagueId", leagueId));
+                cmd.Parameters.Add(new SqlParameter("@excludedTeamId", excludedTeamId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dataTable.Load(reader);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return dataTable;
+        }
+
         public static League GetLeague(int leagueId)
         {
             League league = new League();
@@ -191,6 +219,36 @@ namespace FootballInfoSystem.Data
             }
             return dataTable;
         }
+
+        public static DataTable GetPastMatchesWithoutResult(int leagueId)
+        {
+            SqlConnection dbConnection = null;
+            DataTable dataTable = new DataTable();
+            DateTime matchEndDateTime = DateTime.Now;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "select game.Id, game.matchDate, homeTeam.name, awayTeam.name from Games as game, Teams as homeTeam, Teams as awayTeam where awayTeam.Id = game.awayTeam_Id and homeTeam.Id = game.homeTeam_Id and game.matchDate < @matchEndDateTime and game.result is null and (homeTeam.League_Id=@leagueId and awayTeam.League_Id=@leagueId) order by game.matchDate";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@leagueId", leagueId));
+                cmd.Parameters.Add(new SqlParameter("@matchEndDateTime", matchEndDateTime));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dataTable.Load(reader);
+                }
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+            return dataTable;
+        }
+
 
         public static Footballer GetFootballer(int footballerId)
         {
@@ -268,6 +326,62 @@ namespace FootballInfoSystem.Data
                 SqlCommand cmd = new SqlCommand(commandText, dbConnection);
                 cmd.Parameters.Add(new SqlParameter("@userId", userId));
                 cmd.Parameters.Add(new SqlParameter("@teamId", teamId));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+        }
+
+        public static bool АddGame(int homeTeamId, int awayTeamId, DateTime matchDate)
+        {
+            SqlConnection dbConnection = null;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "insert into Games(homeTeam_Id, awayTeam_Id, matchDate) values(@homeTeamId, @awayTeamId, @matchDate)";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@homeTeamId", homeTeamId));
+                cmd.Parameters.Add(new SqlParameter("@awayTeamId", awayTeamId));
+                cmd.Parameters.Add(new SqlParameter("@matchDate", matchDate));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                if (dbConnection != null)
+                {
+                    dbConnection.Close();
+                }
+            }
+        }
+
+        public static bool UpdateGameResult(int gameId, int homeTeamScore, int awayTeamScore)
+        {
+            SqlConnection dbConnection = null;
+            string result = homeTeamScore + ":" + awayTeamScore;
+            try
+            {
+                dbConnection = new SqlConnection(DB_CONNECTION_STRING);
+                dbConnection.Open();
+                string commandText = "update Games set result = @result where id = @gameId";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@result", result));
+                cmd.Parameters.Add(new SqlParameter("@gameId", gameId));
                 cmd.ExecuteNonQuery();
                 return true;
             }
