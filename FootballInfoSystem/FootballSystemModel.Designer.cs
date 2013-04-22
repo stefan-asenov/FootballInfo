@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -156,7 +155,6 @@ namespace FootballInfoSystem
         private ObjectSet<Game> _Games;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -200,11 +198,11 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -245,7 +243,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -468,7 +465,6 @@ namespace FootballInfoSystem
         partial void OnpositionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -511,7 +507,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -540,7 +535,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -619,7 +613,6 @@ namespace FootballInfoSystem
         partial void OnmatchDateChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -700,7 +693,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -729,7 +721,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -808,7 +799,6 @@ namespace FootballInfoSystem
         partial void OncountryChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -835,7 +825,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -876,7 +865,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1099,7 +1087,6 @@ namespace FootballInfoSystem
         partial void OndrawsChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1186,7 +1173,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1207,7 +1193,8 @@ namespace FootballInfoSystem
         /// <param name="password">Initial value of the password property.</param>
         /// <param name="firstName">Initial value of the firstName property.</param>
         /// <param name="lastName">Initial value of the lastName property.</param>
-        public static User CreateUser(global::System.Int32 id, global::System.String userName, global::System.String password, global::System.String firstName, global::System.String lastName)
+        /// <param name="role">Initial value of the role property.</param>
+        public static User CreateUser(global::System.Int32 id, global::System.String userName, global::System.String password, global::System.String firstName, global::System.String lastName, global::System.Int32 role)
         {
             User user = new User();
             user.Id = id;
@@ -1215,11 +1202,11 @@ namespace FootballInfoSystem
             user.password = password;
             user.firstName = firstName;
             user.lastName = lastName;
+            user.role = role;
             return user;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1344,9 +1331,32 @@ namespace FootballInfoSystem
         private global::System.String _lastName;
         partial void OnlastNameChanging(global::System.String value);
         partial void OnlastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 role
+        {
+            get
+            {
+                return _role;
+            }
+            set
+            {
+                OnroleChanging(value);
+                ReportPropertyChanging("role");
+                _role = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("role");
+                OnroleChanged();
+            }
+        }
+        private global::System.Int32 _role;
+        partial void OnroleChanging(global::System.Int32 value);
+        partial void OnroleChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1373,10 +1383,8 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

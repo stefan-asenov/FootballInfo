@@ -24,6 +24,7 @@ namespace FootballInfoSystem.Data {
                     user.Id = reader.GetInt32(0);
                     user.firstName = reader.GetString(3);
                     user.lastName = reader.GetString(4);
+                    user.role = reader.GetInt32(5);
                 }
             } 
             return user;

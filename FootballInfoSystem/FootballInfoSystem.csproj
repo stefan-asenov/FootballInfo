@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Data\DBUtils.cs" />
     <Compile Include="Data\UserData.cs" />
+    <Compile Include="Data\UserStatus.cs" />
     <Compile Include="FootballSystemModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

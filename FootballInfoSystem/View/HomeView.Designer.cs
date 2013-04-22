@@ -55,7 +55,7 @@
             this.favoriteTeamCombo = new System.Windows.Forms.ComboBox();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
             this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -295,7 +295,7 @@
             // 
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.logoutToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(653, 24);
@@ -309,12 +309,12 @@
             this.adminToolStripMenuItem.Text = "Админ";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // logoutToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.exitToolStripMenuItem.Text = "Изход";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.logoutToolStripMenuItem.Text = "Отписване";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // lblUsername
             // 
@@ -387,7 +387,7 @@
         private System.Windows.Forms.PictureBox addFavoriteTeamImage;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.TabPage forecastTab;
         private System.Windows.Forms.TabPage footballersTab;
         private System.Windows.Forms.DataGridView standingGridView;
