@@ -148,6 +148,7 @@
       <LastGenOutput>FootballSystemModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <None Include="Properties\DataSources\FootballInfoSystem.Logic.Prediction.datasource" />
     <None Include="Properties\DataSources\FootballSystemDatabaseEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

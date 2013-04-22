@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FootballInfoSystem.Data;
 using System.Windows.Forms.DataVisualization.Charting;
+using FootballInfoSystem.Logic;
 
 namespace FootballInfoSystem.View {
     public partial class HomeView : Form {
@@ -85,7 +86,6 @@ namespace FootballInfoSystem.View {
 
         private void UpdateFootballersTable(int teamId) {
             DataTable data = DBUtils.GetFootballers(teamId);
-            ;
             footballersGridView.DataSource = data;
             if (data.Rows.Count != 0) {
                 footballersGridView.Columns["Id"].Visible = false;
@@ -120,7 +120,17 @@ namespace FootballInfoSystem.View {
         }
 
         private void UpdatePredictedGames(int teamId) {
+            GamePredictor predictor = new GamePredictor(teamId);
+            predictionsDataGrid.Columns[0].HeaderText = "Домакин";
+            predictionsDataGrid.Columns[1].HeaderText = "1";
+            predictionsDataGrid.Columns[2].HeaderText = "X";
+            predictionsDataGrid.Columns[3].HeaderText = "2";
+            predictionsDataGrid.Columns[4].HeaderText = "Гост";
 
+            //IList<Prediction> predictions = predictor.predictGames();
+            /*BindingList<Prediction> bindingSource = new BindingList<Prediction>();
+            bindingSource.Add(predictions.First<Prediction>());*/
+            predictionBindingSource.DataSource = predictor.predictGames();
         }
 
         private void favoriteTeamChanged(object sender, EventArgs e) {

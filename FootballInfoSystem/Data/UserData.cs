@@ -6,9 +6,6 @@ using System.Data.SqlClient;
 
 namespace FootballInfoSystem.Data {
     class UserData {
-
-
-
         public static User IsUserPassCorrect(string username, string password) {
             User user = null;
             using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {

@@ -43,11 +43,6 @@
             this.leagueCountryImage = new System.Windows.Forms.PictureBox();
             this.forecastTab = new System.Windows.Forms.TabPage();
             this.predictionsDataGrid = new System.Windows.Forms.DataGridView();
-            this.homeTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.homeWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AwayWinCoef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.awayTeamColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statisticsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.footballersTab = new System.Windows.Forms.TabPage();
             this.footballersGridView = new System.Windows.Forms.DataGridView();
@@ -58,7 +53,12 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
-            this.footballSystemDatabaseEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.predictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.homeTeamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.homeWinCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.awayWinCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.awayTeamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
@@ -73,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.footballersGridView)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predictionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTab
@@ -190,47 +190,19 @@
             // 
             // predictionsDataGrid
             // 
+            this.predictionsDataGrid.AutoGenerateColumns = false;
             this.predictionsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.predictionsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.homeTeamColumn,
-            this.homeWinCoef,
-            this.drawCoef,
-            this.AwayWinCoef,
-            this.awayTeamColumn});
-            this.predictionsDataGrid.Location = new System.Drawing.Point(6, 6);
+            this.homeTeamDataGridViewTextBoxColumn,
+            this.homeWinCoefDataGridViewTextBoxColumn,
+            this.drawCoefDataGridViewTextBoxColumn,
+            this.awayWinCoefDataGridViewTextBoxColumn,
+            this.awayTeamDataGridViewTextBoxColumn});
+            this.predictionsDataGrid.DataSource = this.predictionBindingSource;
+            this.predictionsDataGrid.Location = new System.Drawing.Point(3, 4);
             this.predictionsDataGrid.Name = "predictionsDataGrid";
-            this.predictionsDataGrid.Size = new System.Drawing.Size(328, 149);
+            this.predictionsDataGrid.Size = new System.Drawing.Size(346, 251);
             this.predictionsDataGrid.TabIndex = 1;
-            // 
-            // homeTeamColumn
-            // 
-            this.homeTeamColumn.HeaderText = "Домакин";
-            this.homeTeamColumn.Name = "homeTeamColumn";
-            this.homeTeamColumn.Width = 95;
-            // 
-            // homeWinCoef
-            // 
-            this.homeWinCoef.HeaderText = "1";
-            this.homeWinCoef.Name = "homeWinCoef";
-            this.homeWinCoef.Width = 30;
-            // 
-            // drawCoef
-            // 
-            this.drawCoef.HeaderText = "X";
-            this.drawCoef.Name = "drawCoef";
-            this.drawCoef.Width = 30;
-            // 
-            // AwayWinCoef
-            // 
-            this.AwayWinCoef.HeaderText = "2";
-            this.AwayWinCoef.Name = "AwayWinCoef";
-            this.AwayWinCoef.Width = 30;
-            // 
-            // awayTeamColumn
-            // 
-            this.awayTeamColumn.HeaderText = "Гост";
-            this.awayTeamColumn.Name = "awayTeamColumn";
-            this.awayTeamColumn.Width = 95;
             // 
             // statisticsChart
             // 
@@ -336,9 +308,47 @@
             this.addFavoriteTeamImage.TabStop = false;
             this.addFavoriteTeamImage.Click += new System.EventHandler(this.addFavoriteTeamImage_Click);
             // 
-            // footballSystemDatabaseEntitiesBindingSource
+            // predictionBindingSource
             // 
-            this.footballSystemDatabaseEntitiesBindingSource.DataSource = typeof(FootballInfoSystem.FootballSystemDatabaseEntities);
+            this.predictionBindingSource.DataSource = typeof(FootballInfoSystem.Logic.Prediction);
+            // 
+            // homeTeamDataGridViewTextBoxColumn
+            // 
+            this.homeTeamDataGridViewTextBoxColumn.DataPropertyName = "homeTeam";
+            this.homeTeamDataGridViewTextBoxColumn.HeaderText = "homeTeam";
+            this.homeTeamDataGridViewTextBoxColumn.Name = "homeTeamDataGridViewTextBoxColumn";
+            this.homeTeamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // homeWinCoefDataGridViewTextBoxColumn
+            // 
+            this.homeWinCoefDataGridViewTextBoxColumn.DataPropertyName = "homeWinCoef";
+            this.homeWinCoefDataGridViewTextBoxColumn.HeaderText = "homeWinCoef";
+            this.homeWinCoefDataGridViewTextBoxColumn.Name = "homeWinCoefDataGridViewTextBoxColumn";
+            this.homeWinCoefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.homeWinCoefDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // drawCoefDataGridViewTextBoxColumn
+            // 
+            this.drawCoefDataGridViewTextBoxColumn.DataPropertyName = "drawCoef";
+            this.drawCoefDataGridViewTextBoxColumn.HeaderText = "drawCoef";
+            this.drawCoefDataGridViewTextBoxColumn.Name = "drawCoefDataGridViewTextBoxColumn";
+            this.drawCoefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.drawCoefDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // awayWinCoefDataGridViewTextBoxColumn
+            // 
+            this.awayWinCoefDataGridViewTextBoxColumn.DataPropertyName = "awayWinCoef";
+            this.awayWinCoefDataGridViewTextBoxColumn.HeaderText = "awayWinCoef";
+            this.awayWinCoefDataGridViewTextBoxColumn.Name = "awayWinCoefDataGridViewTextBoxColumn";
+            this.awayWinCoefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.awayWinCoefDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // awayTeamDataGridViewTextBoxColumn
+            // 
+            this.awayTeamDataGridViewTextBoxColumn.DataPropertyName = "awayTeam";
+            this.awayTeamDataGridViewTextBoxColumn.HeaderText = "awayTeam";
+            this.awayTeamDataGridViewTextBoxColumn.Name = "awayTeamDataGridViewTextBoxColumn";
+            this.awayTeamDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // HomeView
             // 
@@ -371,7 +381,7 @@
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addFavoriteTeamImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.footballSystemDatabaseEntitiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predictionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,16 +406,15 @@
         private System.Windows.Forms.DataGridView programGridView;
         private System.Windows.Forms.PictureBox leagueCountryImage;
 	private System.Windows.Forms.Label leagueNameLabel;
-	private System.Windows.Forms.Label lblUsername;
-
-        private System.Windows.Forms.BindingSource footballSystemDatabaseEntitiesBindingSource;
+    private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.DataGridView footballersGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart statisticsChart;
         private System.Windows.Forms.DataGridView predictionsDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn homeTeamColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn homeWinCoef;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drawCoef;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AwayWinCoef;
-        private System.Windows.Forms.DataGridViewTextBoxColumn awayTeamColumn;
+        private System.Windows.Forms.BindingSource predictionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn homeTeamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn homeWinCoefDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drawCoefDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn awayWinCoefDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn awayTeamDataGridViewTextBoxColumn;
     }
 }
