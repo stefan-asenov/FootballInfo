@@ -21,13 +21,15 @@ namespace FootballInfoSystem.View {
         private void btnLogin_Click(object sender, EventArgs e) {
             LoginValidation login = new LoginValidation(txtBoxUsername.Text, txtBoxPassword.Text);
             User user;
-            if (login.ValidateUserInput(out user)) {
+            List<string> loginMessages = login.ValidateUserInput(out user);
+            if (loginMessages.Count == 0) {
                 this.user = user;
                 this.DialogResult = DialogResult.OK;
                 this.Hide();
                 HomeView homeView = new HomeView(user);
             } else {
-                MessageBox.Show(login.ErrorText);
+                ErrorListView errors = new ErrorListView(loginMessages);
+                errors.ShowDialog();
             }
         }
 
@@ -38,6 +40,11 @@ namespace FootballInfoSystem.View {
         private void LoginFormView_Activated(object sender, EventArgs e) {
             this.txtBoxUsername.Text = "";
             this.txtBoxPassword.Text = "";
+        }
+
+        private void linkLblRegistration_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            RegistrationView registrationView = new RegistrationView();
+            registrationView.ShowDialog();
         }
     }
 }

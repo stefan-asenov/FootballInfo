@@ -29,6 +29,7 @@
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.linkLblRegistration = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -66,7 +67,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(212, 65);
+            this.btnCancel.Location = new System.Drawing.Point(213, 60);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(131, 65);
+            this.btnLogin.Location = new System.Drawing.Point(125, 60);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -84,13 +85,25 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // linkLblRegistration
+            // 
+            this.linkLblRegistration.AutoSize = true;
+            this.linkLblRegistration.Location = new System.Drawing.Point(12, 65);
+            this.linkLblRegistration.Name = "linkLblRegistration";
+            this.linkLblRegistration.Size = new System.Drawing.Size(100, 13);
+            this.linkLblRegistration.TabIndex = 4;
+            this.linkLblRegistration.TabStop = true;
+            this.linkLblRegistration.Text = "Нова регистрация";
+            this.linkLblRegistration.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblRegistration_LinkClicked);
+            // 
             // LoginFormView
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(302, 96);
+            this.ClientSize = new System.Drawing.Size(307, 95);
+            this.Controls.Add(this.linkLblRegistration);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtBoxPassword);
@@ -113,5 +126,6 @@
         private System.Windows.Forms.TextBox txtBoxPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.LinkLabel linkLblRegistration;
     }
 }
