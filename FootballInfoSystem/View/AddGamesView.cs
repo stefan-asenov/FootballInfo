@@ -53,14 +53,22 @@ namespace FootballInfoSystem.View {
         {
             DataTable data = DBUtils.GetPastMatchesWithoutResult((int)leaguesCombo.SelectedValue);
             pastGamesGridView.DataSource = data;
-            if (data.Rows.Count != 0)
-            {
+            if (data.Rows.Count != 0) {
+                EnableMatchUpdate(true);
                 pastGamesGridView.Columns["Id"].Visible = false;
                 pastGamesGridView.Columns["matchDate"].HeaderText = "Дата";
                 pastGamesGridView.Columns["name"].HeaderText = "Домакин";
                 pastGamesGridView.Columns["name1"].HeaderText = "Гост";
+            } else {
+                EnableMatchUpdate(false);
             }
             UpdateSetResultInfo(0);
+        }
+
+        private void EnableMatchUpdate(bool enabled) {
+            homeTeamScoreDropdown.Enabled = enabled;
+            awayTeamScoreDropdown.Enabled = enabled;
+            updateResultButton.Enabled = enabled;
         }
 
         private void HomeTeamComboChanged(object sender, EventArgs e)
