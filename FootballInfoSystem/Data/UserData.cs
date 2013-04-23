@@ -28,6 +28,20 @@ namespace FootballInfoSystem.Data {
             return user;
         }
 
+        public static List<string> GetExistingUsernames() {
+            List<string> usernames = new List<string>();
+            using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {
+                dbConnection.Open();
+                string commandText = "select userName from Users";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) {
+                    usernames.Add(reader.GetString(0));
+                }
+            }
+            return usernames;
+        }
+
         public static void addUserToDatabase(string firstName, string lastName, string username, string password) {
             using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {
                 dbConnection.Open();

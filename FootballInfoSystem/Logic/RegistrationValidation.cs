@@ -20,6 +20,9 @@ namespace FootballInfoSystem.Logic {
             if (!repeatPassword.Equals(password)) {
                 errorMessages.Add("Паролите не съвпадат!");
             }
+            if (UserData.GetExistingUsernames().Contains(username)) {
+                errorMessages.Add("Потребителското име " + username + " е вече заето. Изберете друго!");
+            }
             if (errorMessages.Count == 0) {
                 UserData.addUserToDatabase(firstName, lastName, username, password);
             }
