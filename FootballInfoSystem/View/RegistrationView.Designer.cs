@@ -30,33 +30,37 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblPasswordRepeat = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.txtBoxFirstName = new System.Windows.Forms.TextBox();
+            this.txtBoxLastName = new System.Windows.Forms.TextBox();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBoxUsername
             // 
-            this.txtBoxUsername.Location = new System.Drawing.Point(127, 13);
+            this.txtBoxUsername.Location = new System.Drawing.Point(128, 66);
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(123, 20);
-            this.txtBoxUsername.TabIndex = 0;
+            this.txtBoxUsername.TabIndex = 2;
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.Location = new System.Drawing.Point(127, 40);
+            this.txtBoxPassword.Location = new System.Drawing.Point(128, 92);
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(123, 20);
-            this.txtBoxPassword.TabIndex = 1;
+            this.txtBoxPassword.TabIndex = 3;
             // 
             // txtBoxRepeatPassword
             // 
-            this.txtBoxRepeatPassword.Location = new System.Drawing.Point(127, 67);
+            this.txtBoxRepeatPassword.Location = new System.Drawing.Point(128, 118);
             this.txtBoxRepeatPassword.Name = "txtBoxRepeatPassword";
             this.txtBoxRepeatPassword.Size = new System.Drawing.Size(123, 20);
-            this.txtBoxRepeatPassword.TabIndex = 2;
+            this.txtBoxRepeatPassword.TabIndex = 4;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(13, 13);
+            this.lblUsername.Location = new System.Drawing.Point(12, 66);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(111, 13);
             this.lblUsername.TabIndex = 3;
@@ -65,7 +69,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(12, 40);
+            this.lblPassword.Location = new System.Drawing.Point(12, 92);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(48, 13);
             this.lblPassword.TabIndex = 3;
@@ -74,7 +78,7 @@
             // lblPasswordRepeat
             // 
             this.lblPasswordRepeat.AutoSize = true;
-            this.lblPasswordRepeat.Location = new System.Drawing.Point(12, 67);
+            this.lblPasswordRepeat.Location = new System.Drawing.Point(12, 118);
             this.lblPasswordRepeat.Name = "lblPasswordRepeat";
             this.lblPasswordRepeat.Size = new System.Drawing.Size(92, 13);
             this.lblPasswordRepeat.TabIndex = 3;
@@ -82,19 +86,55 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(156, 93);
+            this.btnRegister.Location = new System.Drawing.Point(157, 144);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(94, 23);
-            this.btnRegister.TabIndex = 4;
+            this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Регистрация";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // txtBoxFirstName
+            // 
+            this.txtBoxFirstName.Location = new System.Drawing.Point(128, 13);
+            this.txtBoxFirstName.Name = "txtBoxFirstName";
+            this.txtBoxFirstName.Size = new System.Drawing.Size(123, 20);
+            this.txtBoxFirstName.TabIndex = 0;
+            // 
+            // txtBoxLastName
+            // 
+            this.txtBoxLastName.Location = new System.Drawing.Point(128, 40);
+            this.txtBoxLastName.Name = "txtBoxLastName";
+            this.txtBoxLastName.Size = new System.Drawing.Size(123, 20);
+            this.txtBoxLastName.TabIndex = 1;
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(12, 13);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(32, 13);
+            this.lblFirstName.TabIndex = 7;
+            this.lblFirstName.Text = "Име:";
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(12, 40);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(59, 13);
+            this.lblLastName.TabIndex = 8;
+            this.lblLastName.Text = "Фамилия:";
             // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 129);
+            this.ClientSize = new System.Drawing.Size(263, 180);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.txtBoxLastName);
+            this.Controls.Add(this.txtBoxFirstName);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lblPasswordRepeat);
             this.Controls.Add(this.lblPassword);
@@ -118,5 +158,9 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblPasswordRepeat;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.TextBox txtBoxFirstName;
+        private System.Windows.Forms.TextBox txtBoxLastName;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblLastName;
     }
 }

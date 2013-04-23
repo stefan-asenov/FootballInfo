@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace FootballInfoSystem.Data {
     class UserData {
@@ -23,8 +24,29 @@ namespace FootballInfoSystem.Data {
                     user.lastName = reader.GetString(4);
                     user.role = reader.GetInt32(5);
                 }
-            } 
+            }
             return user;
+        }
+
+        public static void addUserToDatabase(string firstName, string lastName, string username, string password) {
+            using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {
+                dbConnection.Open();
+                string commandText = "INSERT INTO Users (userName, password, firstName, lastName, role) " +
+                    "VALUES (@username, @password, @firstName, @lastName, 2)";
+                SqlCommand cmd = new SqlCommand(commandText, dbConnection);
+                cmd.Parameters.Add(new SqlParameter("@username", username));
+                cmd.Parameters.Add(new SqlParameter("@password", password));
+                cmd.Parameters.Add(new SqlParameter("@firstName", firstName));
+                cmd.Parameters.Add(new SqlParameter("@lastName", lastName));
+                try {
+                    int result = cmd.ExecuteNonQuery();
+                    if (result != 1) {
+                        MessageBox.Show("Грешка при добавяне на потребител!");
+                    }
+                } catch (SqlException ex) {
+                    MessageBox.Show("Грешка при добавяне на потребител!");
+                }
+            }
         }
     }
 }
