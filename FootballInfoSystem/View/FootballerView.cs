@@ -27,6 +27,8 @@ namespace FootballInfoSystem.View {
             lblDataWeight.Text = footballer.weight.ToString();
             lblDataNumber.Text = footballer.number.ToString();
             lblDataPosition.Text = footballer.position;
+
+            photoBox.ImageLocation = "Resources/" + footballer.name + ".png";
         }
     }
 }
