@@ -127,9 +127,6 @@ namespace FootballInfoSystem.View {
             predictionsDataGrid.Columns[3].HeaderText = "2";
             predictionsDataGrid.Columns[4].HeaderText = "Гост";
 
-            //IList<Prediction> predictions = predictor.predictGames();
-            /*BindingList<Prediction> bindingSource = new BindingList<Prediction>();
-            bindingSource.Add(predictions.First<Prediction>());*/
             predictionBindingSource.DataSource = predictor.predictGames();
         }
 

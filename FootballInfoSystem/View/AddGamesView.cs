@@ -81,11 +81,6 @@ namespace FootballInfoSystem.View {
             this.Close();
         }
 
-        private void btnCancel_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnAddGame_Click(object sender, EventArgs e)
         {
             string homeTeamName = ((DataRowView)comboHomeTeam.SelectedItem).Row[comboHomeTeam.DisplayMember].ToString();
@@ -151,9 +146,10 @@ namespace FootballInfoSystem.View {
             {
                 if (pastGamesGridView.SelectedRows.Count == 1)
                 {
-                    
-                    bool isUpdated = DBUtils.UpdateGameResult(gameId, homeTeamScore, awayTeamScore);
-                    if (isUpdated)
+
+                    bool isGameUpdated = DBUtils.UpdateGameResult(gameId, homeTeamScore, awayTeamScore);
+                    bool isStandingUpdated = updateStanding(homeTeamName, homeTeamScore,awayTeamName, awayTeamScore);
+                    if (isGameUpdated && isStandingUpdated)
                     {
                         UpdatePastMatchesTable();
                         homeTeamScoreDropdown.Value = 0;
@@ -164,6 +160,16 @@ namespace FootballInfoSystem.View {
                     MessageBox.Show("Не успяхте въведете резултат за срещата. Опитайте отново!");
                 }
             }
+        }
+
+        private bool updateStanding(string homeTeamName, int homeTeamScore, string awayTeamName, int awayTeamScore) {
+            int homeTeamPoints = homeTeamScore > awayTeamScore ? 3 : homeTeamScore == awayTeamScore ? 1 : 0;
+            int awayTeamPoints = awayTeamScore > homeTeamScore ? 3 : homeTeamScore == awayTeamScore ? 1 : 0;
+            return DBUtils.UpdateStanding(homeTeamName, homeTeamPoints) && DBUtils.UpdateStanding(awayTeamName, awayTeamPoints);
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }
