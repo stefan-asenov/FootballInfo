@@ -74,9 +74,37 @@ namespace FootballInfoSystem.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Andres_Iniesta {
+            get {
+                object obj = ResourceManager.GetObject("Andres_Iniesta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Barcelona {
+            get {
+                object obj = ResourceManager.GetObject("Barcelona", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Bulgaria {
             get {
                 object obj = ResourceManager.GetObject("Bulgaria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Carles_Puyol {
+            get {
+                object obj = ResourceManager.GetObject("Carles_Puyol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap David_Villa {
+            get {
+                object obj = ResourceManager.GetObject("David_Villa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,6 +133,20 @@ namespace FootballInfoSystem.Properties {
         internal static System.Drawing.Bitmap Lionel_Messi {
             get {
                 object obj = ResourceManager.GetObject("Lionel_Messi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Spain {
+            get {
+                object obj = ResourceManager.GetObject("Spain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Victor_Valdes {
+            get {
+                object obj = ResourceManager.GetObject("Victor_Valdes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
