@@ -14,9 +14,9 @@ namespace FootballInfoSystem.View {
         public AddFavouriteTeamView(int userId) {
             InitializeComponent();
             this.userId = userId;
-            comboLeagues.ValueMember = "id";
-            comboLeagues.DisplayMember = "name";
             comboLeagues.DataSource = DBUtils.GetLeagues(); 
+            comboLeagues.ValueMember = "Id";
+            comboLeagues.DisplayMember = "name";
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -54,9 +54,9 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                comboTeams.ValueMember = "id";
-                comboTeams.DisplayMember = "name";
                 comboTeams.DataSource = DBUtils.GetTeamsInLeague((int)comboLeagues.SelectedValue);
+                comboTeams.ValueMember = "Id";
+                comboTeams.DisplayMember = "name";
             }
             catch (Exception)
             {

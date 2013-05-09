@@ -20,11 +20,11 @@ namespace FootballInfoSystem.View {
             //Adding information for leagues
             DataTable leagues = DBUtils.GetLeagues();
 
-            comboChampionship.ValueMember = "id";
+            comboChampionship.ValueMember = "Id";
             comboChampionship.DisplayMember = "name";
             comboChampionship.DataSource = leagues;
 
-            leaguesCombo.ValueMember = "id";
+            leaguesCombo.ValueMember = "Id";
             leaguesCombo.DisplayMember = "name";
             leaguesCombo.DataSource = leagues;
             
@@ -34,9 +34,9 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                comboHomeTeam.ValueMember = "id";
-                comboHomeTeam.DisplayMember = "name";
                 comboHomeTeam.DataSource = DBUtils.GetTeamsInLeague((int)comboChampionship.SelectedValue);
+                comboHomeTeam.ValueMember = "Id";
+                comboHomeTeam.DisplayMember = "name";
             }
             catch (Exception)
             {
@@ -75,9 +75,9 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                comboAwayTeam.ValueMember = "id";
-                comboAwayTeam.DisplayMember = "name";
                 comboAwayTeam.DataSource = DBUtils.GetTeamsInLeagueWithoutSpecificTeam((int)comboChampionship.SelectedValue, (int)comboHomeTeam.SelectedValue);
+                comboAwayTeam.ValueMember = "Id";
+                comboAwayTeam.DisplayMember = "name";
             }
             catch (Exception)
             {

@@ -49,6 +49,7 @@
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(123, 20);
             this.txtBoxPassword.TabIndex = 3;
+            this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
             // txtBoxRepeatPassword
             // 
@@ -56,6 +57,7 @@
             this.txtBoxRepeatPassword.Name = "txtBoxRepeatPassword";
             this.txtBoxRepeatPassword.Size = new System.Drawing.Size(123, 20);
             this.txtBoxRepeatPassword.TabIndex = 4;
+            this.txtBoxRepeatPassword.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 

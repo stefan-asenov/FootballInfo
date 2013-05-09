@@ -63,6 +63,7 @@
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(163, 20);
             this.txtBoxPassword.TabIndex = 1;
+            this.txtBoxPassword.UseSystemPasswordChar = true;
             // 
             // btnCancel
             // 
