@@ -42,16 +42,17 @@ namespace FootballInfoSystem.Data {
             return usernames;
         }
 
-        public static void addUserToDatabase(string firstName, string lastName, string username, string password) {
+        public static void addUserToDatabase(string firstName, string lastName, string username, string password, string email) {
             using (SqlConnection dbConnection = new SqlConnection(DBUtils.getDbConnectionString())) {
                 dbConnection.Open();
-                string commandText = "INSERT INTO Users (userName, password, firstName, lastName, role) " +
-                    "VALUES (@username, @password, @firstName, @lastName, 2)";
+                string commandText = "INSERT INTO Users (userName, password, firstName, lastName, email, role) " +
+                    "VALUES (@username, @password, @firstName, @lastName, @email, 2)";
                 SqlCommand cmd = new SqlCommand(commandText, dbConnection);
                 cmd.Parameters.Add(new SqlParameter("@username", username));
                 cmd.Parameters.Add(new SqlParameter("@password", password));
                 cmd.Parameters.Add(new SqlParameter("@firstName", firstName));
                 cmd.Parameters.Add(new SqlParameter("@lastName", lastName));
+                cmd.Parameters.Add(new SqlParameter("@email", email));
                 try {
                     int result = cmd.ExecuteNonQuery();
                     if (result != 1) {

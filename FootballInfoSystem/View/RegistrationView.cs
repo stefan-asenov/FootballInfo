@@ -17,7 +17,7 @@ namespace FootballInfoSystem.View {
 
         private void btnRegister_Click(object sender, EventArgs e) {
             List<string> registrationMessages = RegistrationValidation.validateRegistration(txtBoxFirstName.Text, txtBoxLastName.Text,
-                txtBoxUsername.Text, txtBoxPassword.Text, txtBoxRepeatPassword.Text);
+                txtBoxUsername.Text, txtBoxPassword.Text, txtBoxRepeatPassword.Text, txtBoxEmail.Text);
             if (registrationMessages.Count == 0) {
                 MessageBox.Show("Регистрирахте се успешно!");
                 this.Close();

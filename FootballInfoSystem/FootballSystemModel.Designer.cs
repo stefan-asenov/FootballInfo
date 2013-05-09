@@ -1194,7 +1194,8 @@ namespace FootballInfoSystem
         /// <param name="firstName">Initial value of the firstName property.</param>
         /// <param name="lastName">Initial value of the lastName property.</param>
         /// <param name="role">Initial value of the role property.</param>
-        public static User CreateUser(global::System.Int32 id, global::System.String userName, global::System.String password, global::System.String firstName, global::System.String lastName, global::System.Int32 role)
+        /// <param name="email">Initial value of the email property.</param>
+        public static User CreateUser(global::System.Int32 id, global::System.String userName, global::System.String password, global::System.String firstName, global::System.String lastName, global::System.Int32 role, global::System.String email)
         {
             User user = new User();
             user.Id = id;
@@ -1203,6 +1204,7 @@ namespace FootballInfoSystem
             user.firstName = firstName;
             user.lastName = lastName;
             user.role = role;
+            user.email = email;
             return user;
         }
 
@@ -1355,6 +1357,30 @@ namespace FootballInfoSystem
         private global::System.Int32 _role;
         partial void OnroleChanging(global::System.Int32 value);
         partial void OnroleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                OnemailChanging(value);
+                ReportPropertyChanging("email");
+                _email = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("email");
+                OnemailChanged();
+            }
+        }
+        private global::System.String _email;
+        partial void OnemailChanging(global::System.String value);
+        partial void OnemailChanged();
 
         #endregion
     

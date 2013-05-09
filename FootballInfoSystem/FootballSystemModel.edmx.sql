@@ -2,11 +2,10 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/16/2013 23:00:44
--- Generated from EDMX file: C:\Users\Kiril\Documents\git\FootballInfo\FootballInfoSystem\FootballSystemModel.edmx
+-- Date Created: 05/10/2013 00:45:51
+-- Generated from EDMX file: D:\изпити и материали\програмиране\C++\Projects\vs\FootballInfoSystem\FootballInfoSystem\FootballSystemModel.edmx
 -- --------------------------------------------------
 
-CREATE DATABASE [FootballSystemDatabase];
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [FootballSystemDatabase];
@@ -18,11 +17,11 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_UserTeam_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserTeam] DROP CONSTRAINT [FK_UserTeam_User];
+IF OBJECT_ID(N'[dbo].[FK_GameTeam]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam];
 GO
-IF OBJECT_ID(N'[dbo].[FK_UserTeam_Team]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserTeam] DROP CONSTRAINT [FK_UserTeam_Team];
+IF OBJECT_ID(N'[dbo].[FK_GameTeam1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam1];
 GO
 IF OBJECT_ID(N'[dbo].[FK_LeagueTeam]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Teams] DROP CONSTRAINT [FK_LeagueTeam];
@@ -30,31 +29,31 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TeamFootballer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Footballers] DROP CONSTRAINT [FK_TeamFootballer];
 GO
-IF OBJECT_ID(N'[dbo].[FK_GameTeam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam];
+IF OBJECT_ID(N'[dbo].[FK_UserTeam_Team]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserTeam] DROP CONSTRAINT [FK_UserTeam_Team];
 GO
-IF OBJECT_ID(N'[dbo].[FK_GameTeam1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Games] DROP CONSTRAINT [FK_GameTeam1];
+IF OBJECT_ID(N'[dbo].[FK_UserTeam_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserTeam] DROP CONSTRAINT [FK_UserTeam_User];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Users];
-GO
-IF OBJECT_ID(N'[dbo].[Teams]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Teams];
-GO
-IF OBJECT_ID(N'[dbo].[Leagues]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Leagues];
-GO
 IF OBJECT_ID(N'[dbo].[Footballers]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Footballers];
 GO
 IF OBJECT_ID(N'[dbo].[Games]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Games];
+GO
+IF OBJECT_ID(N'[dbo].[Leagues]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Leagues];
+GO
+IF OBJECT_ID(N'[dbo].[Teams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Teams];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 IF OBJECT_ID(N'[dbo].[UserTeam]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserTeam];
@@ -70,7 +69,9 @@ CREATE TABLE [dbo].[Users] (
     [userName] nvarchar(max)  NOT NULL,
     [password] nvarchar(max)  NOT NULL,
     [firstName] nvarchar(max)  NOT NULL,
-    [lastName] nvarchar(max)  NOT NULL
+    [lastName] nvarchar(max)  NOT NULL,
+    [role] int  NOT NULL,
+    [email] nvarchar(max)  NOT NULL
 );
 GO
 

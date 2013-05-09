@@ -34,6 +34,8 @@
             this.txtBoxLastName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
+            this.txtBoxEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBoxUsername
@@ -88,7 +90,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(157, 144);
+            this.btnRegister.Location = new System.Drawing.Point(157, 171);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(94, 23);
             this.btnRegister.TabIndex = 5;
@@ -128,19 +130,38 @@
             this.lblLastName.TabIndex = 8;
             this.lblLastName.Text = "Фамилия:";
             // 
+            // txtBoxEmail
+            // 
+            this.txtBoxEmail.Location = new System.Drawing.Point(128, 144);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(123, 20);
+            this.txtBoxEmail.TabIndex = 4;
+            this.txtBoxEmail.UseSystemPasswordChar = true;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(12, 144);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(100, 13);
+            this.lblEmail.TabIndex = 3;
+            this.lblEmail.Text = "Електронна поща:";
+            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 180);
+            this.ClientSize = new System.Drawing.Size(263, 206);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.txtBoxLastName);
             this.Controls.Add(this.txtBoxFirstName);
             this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblPasswordRepeat);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.txtBoxEmail);
             this.Controls.Add(this.txtBoxRepeatPassword);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxUsername);
@@ -164,5 +185,7 @@
         private System.Windows.Forms.TextBox txtBoxLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.TextBox txtBoxEmail;
+        private System.Windows.Forms.Label lblEmail;
     }
 }

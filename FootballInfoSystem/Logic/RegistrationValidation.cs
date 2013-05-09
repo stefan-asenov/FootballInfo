@@ -8,7 +8,7 @@ namespace FootballInfoSystem.Logic {
     class RegistrationValidation {
         public static List<String> ErrorMessages = new List<string>();
 
-        public static List<string> validateRegistration(string firstName, string lastName, string username, string password, string repeatPassword) {
+        public static List<string> validateRegistration(string firstName, string lastName, string username, string password, string repeatPassword, string email) {
             List<string> errorMessages = new List<string>();
             errorMessages.AddRange(ValidationUtil.IsEmpty(firstName, "'име'"));
             errorMessages.AddRange(ValidationUtil.IsEmpty(lastName, "'фамилия'"));
@@ -24,7 +24,7 @@ namespace FootballInfoSystem.Logic {
                 errorMessages.Add("Потребителското име " + username + " е вече заето. Изберете друго!");
             }
             if (errorMessages.Count == 0) {
-                UserData.addUserToDatabase(firstName, lastName, username, password);
+                UserData.addUserToDatabase(firstName, lastName, username, password, email);
             }
             return errorMessages;
         }
