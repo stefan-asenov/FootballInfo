@@ -121,6 +121,7 @@
             // 
             // comboHomeTeam
             // 
+            this.comboHomeTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboHomeTeam.FormattingEnabled = true;
             this.comboHomeTeam.Location = new System.Drawing.Point(102, 73);
             this.comboHomeTeam.Name = "comboHomeTeam";
@@ -130,6 +131,7 @@
             // 
             // comboAwayTeam
             // 
+            this.comboAwayTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAwayTeam.FormattingEnabled = true;
             this.comboAwayTeam.Location = new System.Drawing.Point(102, 118);
             this.comboAwayTeam.Name = "comboAwayTeam";
@@ -138,6 +140,7 @@
             // 
             // comboChampionship
             // 
+            this.comboChampionship.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboChampionship.FormattingEnabled = true;
             this.comboChampionship.Location = new System.Drawing.Point(102, 29);
             this.comboChampionship.Name = "comboChampionship";
@@ -268,6 +271,7 @@
             // 
             // leaguesCombo
             // 
+            this.leaguesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.leaguesCombo.FormattingEnabled = true;
             this.leaguesCombo.Location = new System.Drawing.Point(93, 14);
             this.leaguesCombo.Name = "leaguesCombo";

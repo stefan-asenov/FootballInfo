@@ -33,6 +33,7 @@
             // 
             // comboLeagues
             // 
+            this.comboLeagues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboLeagues.FormattingEnabled = true;
             this.comboLeagues.Location = new System.Drawing.Point(91, 12);
             this.comboLeagues.Name = "comboLeagues";
@@ -51,6 +52,7 @@
             // 
             // comboTeams
             // 
+            this.comboTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTeams.FormattingEnabled = true;
             this.comboTeams.Location = new System.Drawing.Point(91, 39);
             this.comboTeams.Name = "comboTeams";

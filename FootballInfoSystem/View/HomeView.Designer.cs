@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeView));
             this.mainTab = new System.Windows.Forms.TabControl();
             this.standingTab = new System.Windows.Forms.TabPage();
@@ -57,13 +57,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addFavoriteTeamImage = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.homeTeamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.homeWinCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drawCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.awayWinCoefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.awayTeamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.predictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.mainTab.SuspendLayout();
             this.standingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leagueCountryImageStandingTab)).BeginInit();
@@ -213,17 +213,17 @@
             // 
             // statisticsChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.statisticsChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.statisticsChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.statisticsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.statisticsChart.Legends.Add(legend1);
             this.statisticsChart.Location = new System.Drawing.Point(359, 0);
             this.statisticsChart.Name = "statisticsChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Default";
-            this.statisticsChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Default";
+            this.statisticsChart.Series.Add(series1);
             this.statisticsChart.Size = new System.Drawing.Size(274, 268);
             this.statisticsChart.TabIndex = 0;
             this.statisticsChart.Text = "Team statistics";
@@ -274,6 +274,7 @@
             // 
             // favoriteTeamCombo
             // 
+            this.favoriteTeamCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.favoriteTeamCombo.FormattingEnabled = true;
             this.favoriteTeamCombo.Location = new System.Drawing.Point(97, 34);
             this.favoriteTeamCombo.Name = "favoriteTeamCombo";
