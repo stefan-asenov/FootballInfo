@@ -266,7 +266,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="result" Nullable="false" />
+          <Property Type="String" Name="result" Nullable="true" />
           <Property Type="DateTime" Name="matchDate" Nullable="false" />
           <NavigationProperty Name="homeTeam" Relationship="FootballSystemDatabaseModel.GameTeam" FromRole="Game" ToRole="Team" />
           <NavigationProperty Name="awayTeam" Relationship="FootballSystemDatabaseModel.GameTeam1" FromRole="Game" ToRole="Team" />
