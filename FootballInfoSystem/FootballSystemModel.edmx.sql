@@ -116,7 +116,7 @@ GO
 -- Creating table 'Games'
 CREATE TABLE [dbo].[Games] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [result] nvarchar(max)  NOT NULL,
+    [result] nvarchar(max) NULL,
     [matchDate] datetime  NOT NULL,
     [homeTeam_Id] int  NOT NULL,
     [awayTeam_Id] int  NOT NULL

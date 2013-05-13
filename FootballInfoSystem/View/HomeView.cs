@@ -24,6 +24,7 @@ namespace FootballInfoSystem.View {
             AddFavouriteTeamView favTeamView = new AddFavouriteTeamView(user.Id);
             favTeamView.ShowDialog();
             UpdateFavoriteTeamsCombo();
+            UpdateFavoriteTeamsCombo();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -42,7 +43,7 @@ namespace FootballInfoSystem.View {
         }
 
         private void UpdateFavoriteTeamsCombo() {
-            favoriteTeamCombo.ValueMember = "id";
+            favoriteTeamCombo.ValueMember = "Id";
             favoriteTeamCombo.DisplayMember = "name";
             favoriteTeamCombo.DataSource = DBUtils.GetFavoriteTeams(user.Id);
         }

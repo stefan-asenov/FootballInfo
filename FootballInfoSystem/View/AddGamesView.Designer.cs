@@ -87,7 +87,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker.Location = new System.Drawing.Point(291, 29);
+            this.dateTimePicker.Location = new System.Drawing.Point(338, 29);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(241, 20);
             this.dateTimePicker.TabIndex = 20;
@@ -147,7 +147,7 @@
             // 
             // btnAddGame
             // 
-            this.btnAddGame.Location = new System.Drawing.Point(351, 253);
+            this.btnAddGame.Location = new System.Drawing.Point(406, 253);
             this.btnAddGame.Name = "btnAddGame";
             this.btnAddGame.Size = new System.Drawing.Size(75, 23);
             this.btnAddGame.TabIndex = 13;
@@ -158,7 +158,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(457, 253);
+            this.btnCancel.Location = new System.Drawing.Point(504, 253);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 384);
+            this.ClientSize = new System.Drawing.Size(671, 345);
             this.Controls.Add(this.tabControl1);
             this.Name = "AddGamesView";
             this.Text = "Добавяне и актуализиране на мачове";

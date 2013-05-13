@@ -27,7 +27,16 @@ namespace FootballInfoSystem.View {
             leaguesCombo.ValueMember = "Id";
             leaguesCombo.DisplayMember = "name";
             leaguesCombo.DataSource = leagues;
-            
+
+            try
+            {
+                comboHomeTeam.SelectedItem = comboHomeTeam.Items[0];
+                UpdateAwayTeamCombo((int)comboChampionship.SelectedValue, (int)comboHomeTeam.SelectedValue);
+            }
+            catch (Exception)
+            {
+                //Do nothing
+            }   
         }
 
         private void ChampionshipComboChanged(object sender, EventArgs e)
@@ -75,14 +84,19 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                comboAwayTeam.DataSource = DBUtils.GetTeamsInLeagueWithoutSpecificTeam((int)comboChampionship.SelectedValue, (int)comboHomeTeam.SelectedValue);
-                comboAwayTeam.ValueMember = "Id";
-                comboAwayTeam.DisplayMember = "name";
+                UpdateAwayTeamCombo((int)comboChampionship.SelectedValue, (int)comboHomeTeam.SelectedValue);
             }
             catch (Exception)
             {
-                MessageBox.Show("Няма същесвуващи първенства");
+                //Do nothing
             }
+        }
+
+        private void UpdateAwayTeamCombo(int leagueId, int homeTeamId)
+        {
+            comboAwayTeam.DataSource = DBUtils.GetTeamsInLeagueWithoutSpecificTeam(leagueId, homeTeamId);
+            comboAwayTeam.ValueMember = "Id";
+            comboAwayTeam.DisplayMember = "name";
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {

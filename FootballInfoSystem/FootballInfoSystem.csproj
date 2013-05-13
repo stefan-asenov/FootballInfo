@@ -191,12 +191,22 @@
     </Content>
     <Content Include="FootballSystemModel.edmx.sql" />
     <Content Include="Resources\add.png" />
+    <None Include="Resources\ball.png" />
     <Content Include="Resources\Barcelona.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\football.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\grass.png" />
+    <None Include="Resources\Soccer-Stadium.png" />
+    <None Include="Resources\football_soccer_ball.png" />
+    <None Include="Resources\soccer_ball png.png" />
     <Content Include="Resources\Spain.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Stadium.jpg" />
+    <None Include="Resources\team.jpg" />
     <Content Include="Resources\Victor Valdes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

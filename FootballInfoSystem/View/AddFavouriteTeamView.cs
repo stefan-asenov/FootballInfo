@@ -14,9 +14,18 @@ namespace FootballInfoSystem.View {
         public AddFavouriteTeamView(int userId) {
             InitializeComponent();
             this.userId = userId;
-            comboLeagues.DataSource = DBUtils.GetLeagues(); 
+            DataTable data = DBUtils.GetLeagues();
+            comboLeagues.DataSource = data;
             comboLeagues.ValueMember = "Id";
             comboLeagues.DisplayMember = "name";
+            try
+            {
+                updateTeamsCombo(int.Parse(data.Rows[0]["Id"].ToString()));
+            }
+            catch (Exception)
+            {
+                //Do nothing 
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -38,6 +47,7 @@ namespace FootballInfoSystem.View {
                     bool isAdded = DBUtils.АddFavoriteTeam(userId, (int)comboTeams.SelectedValue);
                     if (isAdded)
                     {
+
                         MessageBox.Show("Успешо добавихте "+ teamName + " в любими отбор.");
                         return;
                     }
@@ -54,14 +64,19 @@ namespace FootballInfoSystem.View {
         {
             try
             {
-                comboTeams.DataSource = DBUtils.GetTeamsInLeague((int)comboLeagues.SelectedValue);
-                comboTeams.ValueMember = "Id";
-                comboTeams.DisplayMember = "name";
+                updateTeamsCombo((int)comboLeagues.SelectedValue);
             }
             catch (Exception)
             {
-                MessageBox.Show("Няма същесвуващи първенства");
+                //Do nothing 
             }
+        }
+
+        private void updateTeamsCombo(int leagueId)
+        {
+            comboTeams.DataSource = DBUtils.GetTeamsInLeague(leagueId);
+            comboTeams.ValueMember = "Id";
+            comboTeams.DisplayMember = "name";
         }
     }
 }
