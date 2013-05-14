@@ -195,6 +195,7 @@
     <Content Include="Resources\Barcelona.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\error.ico" />
     <Content Include="Resources\football.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

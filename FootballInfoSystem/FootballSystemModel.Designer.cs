@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -156,7 +155,6 @@ namespace FootballInfoSystem
         private ObjectSet<Game> _Games;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -200,11 +198,11 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -245,7 +243,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -468,7 +465,6 @@ namespace FootballInfoSystem
         partial void OnpositionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -511,7 +507,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -538,7 +533,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -617,7 +611,6 @@ namespace FootballInfoSystem
         partial void OnmatchDateChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -698,7 +691,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -727,7 +719,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -806,7 +797,6 @@ namespace FootballInfoSystem
         partial void OncountryChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -833,7 +823,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -874,7 +863,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1097,7 +1085,6 @@ namespace FootballInfoSystem
         partial void OndrawsChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1184,7 +1171,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1221,7 +1207,6 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1396,7 +1381,6 @@ namespace FootballInfoSystem
         partial void OnemailChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1423,10 +1407,8 @@ namespace FootballInfoSystem
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

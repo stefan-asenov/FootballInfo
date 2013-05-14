@@ -20,29 +20,41 @@ namespace FootballInfoSystem.Logic {
             foreach (Game game in futureGames) {
                 IList<Game> homeTeamLatestGames = DBUtils.getLatestGamesForTeam(game.homeTeam.Id, PREDICTED_GAMES_COUNT);
                 IList<Game> awayTeamLatestGames = DBUtils.getLatestGamesForTeam(game.awayTeam.Id, PREDICTED_GAMES_COUNT);
-                int homeTeamPoints = getTeamPoints(homeTeamLatestGames, game.homeTeam.Id);
-                int awayTeamPoints = getTeamPoints(awayTeamLatestGames, game.awayTeam.Id);
+                int gamesCount = Math.Min(homeTeamLatestGames.Count, awayTeamLatestGames.Count);
+                double homeTeamPoints = getTeamPoints(homeTeamLatestGames, game.homeTeam.Id, gamesCount);
+                double awayTeamPoints = getTeamPoints(awayTeamLatestGames, game.awayTeam.Id, gamesCount);
                 if (homeTeamPoints > awayTeamPoints) {
-                    homeTeamWinCoef = 1.5;
-                    drawCoef = 2.5;
-                    awayTeamWinCoef = 2.2;
+                    homeTeamWinCoef = normalize((homeTeamPoints - awayTeamPoints) / (homeTeamPoints + 1));
+                    drawCoef = normalize((homeTeamPoints + awayTeamPoints) / (2 * awayTeamPoints + 1));
+                    awayTeamWinCoef = normalize((homeTeamPoints - awayTeamPoints) / (awayTeamPoints + 1));
                 } else if (homeTeamPoints == awayTeamPoints) {
-                    homeTeamWinCoef = 2.0;
-                    drawCoef = 2.5;
-                    awayTeamWinCoef = 2.0;
+                    homeTeamWinCoef = normalize((homeTeamPoints + awayTeamPoints) / (awayTeamPoints + 1));
+                    drawCoef = normalize((homeTeamPoints + awayTeamPoints) / (2 * awayTeamPoints + 1));
+                    awayTeamWinCoef = normalize((homeTeamPoints + awayTeamPoints) / (awayTeamPoints + 1));
                 } else {
-                    homeTeamWinCoef = 2.2;
-                    drawCoef = 2.5;
-                    awayTeamWinCoef = 1.5;
+                    homeTeamWinCoef = normalize((awayTeamPoints - homeTeamPoints) / (homeTeamPoints + 1));
+                    drawCoef = normalize((homeTeamPoints + awayTeamPoints) / (2 * homeTeamPoints + 1));
+                    awayTeamWinCoef = normalize((awayTeamPoints - homeTeamPoints) / (awayTeamPoints + 1));
                 }
                 predictions.Add(new Prediction(game.homeTeam, game.awayTeam, homeTeamWinCoef, awayTeamWinCoef, drawCoef));
             }
             return predictions;
         }
 
-        private int getTeamPoints(IList<Game> homeTeamLatestGames, int teamId) {
-            int points = 0;
-            foreach (Game game in homeTeamLatestGames) {
+        private double normalize(double coeficient) {
+            if (coeficient <= 1) {
+                return Math.Round(coeficient + 1.2, 2);
+            }
+            if (coeficient > 3) {
+                return Math.Round((coeficient + 1.4) / coeficient, 2);
+            }
+            return Math.Round(coeficient, 2);
+        }
+
+        private double getTeamPoints(IList<Game> homeTeamLatestGames, int teamId, int gamesCount) {
+            double points = 0;
+            for (int i = 0; i < gamesCount; i++) {
+                Game game = homeTeamLatestGames.ElementAt(i);
                 string result = game.result;
                 string[] goals = result.Split(':');
                 int homeTeamGoals = int.Parse(goals[0]);

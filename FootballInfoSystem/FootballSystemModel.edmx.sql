@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/10/2013 00:45:51
+-- Date Created: 05/14/2013 22:39:52
 -- Generated from EDMX file: D:\изпити и материали\програмиране\C++\Projects\vs\FootballInfoSystem\FootballInfoSystem\FootballSystemModel.edmx
 -- --------------------------------------------------
 
@@ -116,7 +116,7 @@ GO
 -- Creating table 'Games'
 CREATE TABLE [dbo].[Games] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [result] nvarchar(max) NULL,
+    [result] nvarchar(max)  NULL,
     [matchDate] datetime  NOT NULL,
     [homeTeam_Id] int  NOT NULL,
     [awayTeam_Id] int  NOT NULL

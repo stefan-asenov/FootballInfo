@@ -5,178 +5,179 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FootballSystemDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="FootballSystemDatabaseModelStoreContainer">
-          <EntitySet Name="Footballers" EntityType="FootballSystemDatabaseModel.Store.Footballers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Games" EntityType="FootballSystemDatabaseModel.Store.Games" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Leagues" EntityType="FootballSystemDatabaseModel.Store.Leagues" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Teams" EntityType="FootballSystemDatabaseModel.Store.Teams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Users" EntityType="FootballSystemDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UserTeam" EntityType="FootballSystemDatabaseModel.Store.UserTeam" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_GameTeam" Association="FootballSystemDatabaseModel.Store.FK_GameTeam">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GameTeam1" Association="FootballSystemDatabaseModel.Store.FK_GameTeam1">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Games" EntitySet="Games" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LeagueTeam" Association="FootballSystemDatabaseModel.Store.FK_LeagueTeam">
-            <End Role="Leagues" EntitySet="Leagues" />
-            <End Role="Teams" EntitySet="Teams" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TeamFootballer" Association="FootballSystemDatabaseModel.Store.FK_TeamFootballer">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="Footballers" EntitySet="Footballers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserTeam_Team" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_Team">
-            <End Role="Teams" EntitySet="Teams" />
-            <End Role="UserTeam" EntitySet="UserTeam" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserTeam_User" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_User">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="UserTeam" EntitySet="UserTeam" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Footballers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="age" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="nationality" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="datеOfBirth" Type="datetime" Nullable="false" />
-          <Property Name="height" Type="smallint" Nullable="false" />
-          <Property Name="weight" Type="smallint" Nullable="false" />
-          <Property Name="number" Type="smallint" Nullable="false" />
-          <Property Name="position" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Team_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Games">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="result" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="matchDate" Type="datetime" Nullable="false" />
-          <Property Name="homeTeam_Id" Type="int" Nullable="false" />
-          <Property Name="awayTeam_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Leagues">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="country" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Teams">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="stadium" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="manager" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="founded" Type="datetime" Nullable="false" />
-          <Property Name="points" Type="smallint" Nullable="false" />
-          <Property Name="wins" Type="smallint" Nullable="false" />
-          <Property Name="losts" Type="smallint" Nullable="false" />
-          <Property Name="draws" Type="smallint" Nullable="false" />
-          <Property Name="League_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="userName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="firstName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="lastName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="role" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserTeam">
-          <Key>
-            <PropertyRef Name="Users_Id" />
-            <PropertyRef Name="Teams_Id" />
-          </Key>
-          <Property Name="Users_Id" Type="int" Nullable="false" />
-          <Property Name="Teams_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_GameTeam">
-          <End Role="Teams" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
-          <End Role="Games" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="homeTeam_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GameTeam1">
-          <End Role="Teams" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
-          <End Role="Games" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Games">
-              <PropertyRef Name="awayTeam_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LeagueTeam">
-          <End Role="Leagues" Type="FootballSystemDatabaseModel.Store.Leagues" Multiplicity="1" />
-          <End Role="Teams" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Leagues">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Teams">
-              <PropertyRef Name="League_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TeamFootballer">
-          <End Role="Teams" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
-          <End Role="Footballers" Type="FootballSystemDatabaseModel.Store.Footballers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Footballers">
-              <PropertyRef Name="Team_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserTeam_Team">
-          <End Role="Teams" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
-          <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teams">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserTeam">
-              <PropertyRef Name="Teams_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserTeam_User">
-          <End Role="Users" Type="FootballSystemDatabaseModel.Store.Users" Multiplicity="1" />
-          <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserTeam">
-              <PropertyRef Name="Users_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="FootballSystemDatabaseModelStoreContainer">
+    <EntitySet Name="Users" EntityType="FootballSystemDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teams" EntityType="FootballSystemDatabaseModel.Store.Teams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leagues" EntityType="FootballSystemDatabaseModel.Store.Leagues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Footballers" EntityType="FootballSystemDatabaseModel.Store.Footballers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Games" EntityType="FootballSystemDatabaseModel.Store.Games" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTeam" EntityType="FootballSystemDatabaseModel.Store.UserTeam" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UserTeam_User" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTeam_Team" Association="FootballSystemDatabaseModel.Store.FK_UserTeam_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="UserTeam" EntitySet="UserTeam" />
+    </AssociationSet>
+    <AssociationSet Name="LeagueTeam" Association="FootballSystemDatabaseModel.Store.LeagueTeam">
+      <End Role="League" EntitySet="Leagues" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="TeamFootballer" Association="FootballSystemDatabaseModel.Store.TeamFootballer">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Footballer" EntitySet="Footballers" />
+    </AssociationSet>
+    <AssociationSet Name="GameTeam" Association="FootballSystemDatabaseModel.Store.GameTeam">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="GameTeam1" Association="FootballSystemDatabaseModel.Store.GameTeam1">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="role" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="stadium" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="manager" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="founded" Type="datetime" Nullable="false" />
+    <Property Name="points" Type="smallint" Nullable="false" />
+    <Property Name="wins" Type="smallint" Nullable="false" />
+    <Property Name="losts" Type="smallint" Nullable="false" />
+    <Property Name="draws" Type="smallint" Nullable="false" />
+    <Property Name="League_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leagues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Footballers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="age" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nationality" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datеOfBirth" Type="datetime" Nullable="false" />
+    <Property Name="height" Type="smallint" Nullable="false" />
+    <Property Name="weight" Type="smallint" Nullable="false" />
+    <Property Name="number" Type="smallint" Nullable="false" />
+    <Property Name="position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="matchDate" Type="datetime" Nullable="false" />
+    <Property Name="homeTeam_Id" Type="int" Nullable="false" />
+    <Property Name="awayTeam_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTeam">
+    <Key>
+      <PropertyRef Name="Users_Id" />
+      <PropertyRef Name="Teams_Id" />
+    </Key>
+    <Property Name="Users_Id" Type="int" Nullable="false" />
+    <Property Name="Teams_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LeagueTeam">
+    <End Role="League" Type="FootballSystemDatabaseModel.Store.Leagues" Multiplicity="1" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="League">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="League_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamFootballer">
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <End Role="Footballer" Type="FootballSystemDatabaseModel.Store.Footballers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Footballer">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameTeam">
+    <End Role="Game" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="homeTeam_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameTeam1">
+    <End Role="Game" Type="FootballSystemDatabaseModel.Store.Games" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="awayTeam_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_User">
+    <End Role="User" Type="FootballSystemDatabaseModel.Store.Users" Multiplicity="1" />
+    <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTeam_Team">
+    <End Role="UserTeam" Type="FootballSystemDatabaseModel.Store.UserTeam" Multiplicity="*" />
+    <End Role="Team" Type="FootballSystemDatabaseModel.Store.Teams" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTeam">
+        <PropertyRef Name="Teams_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FootballSystemDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -300,12 +301,13 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IsTypeOf(FootballSystemDatabaseModel.User)">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="userName" ColumnName="userName" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
